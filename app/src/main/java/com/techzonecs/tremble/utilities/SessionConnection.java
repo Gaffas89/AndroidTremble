@@ -21,30 +21,26 @@ public class SessionConnection {
 
 
     private String TAG;
-    private static ArrayList<Session> sessionArrayList;
+    private static ArrayList<Session> sessionArrayList = new ArrayList<>();
 
-    public void getSessionArray(String trainee){
+    public ArrayList<Session> getSessionArray(String trainee){
         String tag_string_req = "string_req";
 
         String url = "http://192.168.1.188:8080/TrembleBackend/GetSessions?id_trainee=" + trainee;
 
-        Log.d("test","test1");
        StringRequest strReq = new StringRequest(Request.Method.GET,
                 url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.d("test", response.toString());
 
                 try{
                     JSONObject jsonResponse = new JSONObject(response);
                     JSONArray jsonArray = new JSONArray(jsonResponse.getString("result_data"));
-                    Log.d("test",jsonArray.toString());
-                    Log.d("length",""+ jsonArray.length());
                     for(int i = 0; i < jsonArray.length() ; i++)
                     {
                         JSONObject json = jsonArray.getJSONObject(i);
-                     /*   Session sess = new Session();
+                        Session sess = new Session();
                         sess.setClassName(json.getString("class_name"));
                         sess.setCourseName(json.getString("course_name"));
                         sess.setDate(json.getString("wave_date"));
@@ -54,11 +50,7 @@ public class SessionConnection {
                         sess.setZone(json.getString("zone"));
 
                         sessionArrayList.add(sess);
-*/
-                        Log.d("test1", json.getString("trainer_name"));
-                        Log.d("test1", "testing");
                     }
-                    Log.d("test", "test");
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -75,7 +67,7 @@ public class SessionConnection {
 
 // Adding request to request queue
        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-        //return null;//sessionArrayList;
+        return sessionArrayList;
     }
 }
 

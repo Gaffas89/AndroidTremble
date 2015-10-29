@@ -1,6 +1,7 @@
 package com.techzonecs.tremble.controller;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class CustomSessionAdaptor extends ArrayAdapter<Session> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Session Session = getItem(position);
+        Session session = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.session_list_item, parent, false);
@@ -37,8 +38,14 @@ public class CustomSessionAdaptor extends ArrayAdapter<Session> {
         TextView tvTrainerName = (TextView) convertView.findViewById(R.id.tv_trainer_name);
 
         // Populate the data into the template view using the data object
-        //tvName.setText(user.name);
-        //tvHome.setText(user.hometown);
+        tvCourseName.setText(session.getCourseName());
+        tvClassName.setText(session.getClassName());
+        tvLocationName.setText(session.getLocation());
+        tvZone.setText(session.getZone());
+        btnLocationGps.setText(session.getLocationGps());
+        tvTrainerName.setText(session.getTrainerName());
+        tvDate.setText(session.getDate());
+        Log.d("test", session.getClassName());
         // Return the completed view to render on screen
         return convertView;
     }

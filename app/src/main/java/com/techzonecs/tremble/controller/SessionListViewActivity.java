@@ -25,15 +25,14 @@ public class SessionListViewActivity extends AppCompatActivity {
         // Construct the data source
         ArrayList<Session> arrayOfSessions;
         SessionConnection sessionConnect = new SessionConnection();
-        // arrayOfSessions =
-         sessionConnect.getSessionArray("2");
+         arrayOfSessions = sessionConnect.getSessionArray("2");
 
         //Log.d("testing", arrayOfSessions.toString());
 
-        //// Create the adapter to convert the array to views
-        //CustomSessionAdaptor adapter = new CustomSessionAdaptor(this, arrayOfSessions);
+        // Create the adapter to convert the array to views
+        CustomSessionAdaptor adapter = new CustomSessionAdaptor(this, arrayOfSessions);
         // Attach the adapter to a ListView
-        //ListView listView = (ListView) findViewById(R.id.lv_sessions_list);
-        //listView.setAdapter(adapter);
+        ListView listView = (ListView) findViewById(R.id.lv_sessions_list);
+        listView.setAdapter(adapter);
     }
 }
