@@ -1,5 +1,7 @@
 package com.techzonecs.tremble.utilities;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,23 +23,28 @@ public class SessionConnection {
     private String TAG;
     private static ArrayList<Session> sessionArrayList;
 
-    public ArrayList<Session> getSessionArray(String trainee){
+    public void getSessionArray(String trainee){
         String tag_string_req = "string_req";
 
         String url = "http://192.168.1.188:8080/TrembleBackend/GetSessions?id_trainee=" + trainee;
 
-        StringRequest strReq = new StringRequest(Request.Method.GET,
+        Log.d("test","test1");
+       StringRequest strReq = new StringRequest(Request.Method.GET,
                 url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
+                Log.d("test", response.toString());
+
                 try{
                     JSONObject jsonResponse = new JSONObject(response);
                     JSONArray jsonArray = new JSONArray(jsonResponse.getString("result_data"));
+                    Log.d("test",jsonArray.toString());
+                    Log.d("length",""+ jsonArray.length());
                     for(int i = 0; i < jsonArray.length() ; i++)
                     {
                         JSONObject json = jsonArray.getJSONObject(i);
-                        Session sess = new Session();
+                     /*   Session sess = new Session();
                         sess.setClassName(json.getString("class_name"));
                         sess.setCourseName(json.getString("course_name"));
                         sess.setDate(json.getString("wave_date"));
@@ -47,22 +54,28 @@ public class SessionConnection {
                         sess.setZone(json.getString("zone"));
 
                         sessionArrayList.add(sess);
+*/
+                        Log.d("test1", json.getString("trainer_name"));
+                        Log.d("test1", "testing");
                     }
-                }catch (Exception e){
+                    Log.d("test", "test");
 
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                //VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Log.d("error","test1");
             }
         });
 
 // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-        return sessionArrayList;
+       AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        //return null;//sessionArrayList;
     }
 }
 

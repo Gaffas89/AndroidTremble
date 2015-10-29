@@ -3,6 +3,7 @@ package com.techzonecs.tremble.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
@@ -24,14 +25,15 @@ public class SessionListViewActivity extends AppCompatActivity {
         // Construct the data source
         ArrayList<Session> arrayOfSessions;
         SessionConnection sessionConnect = new SessionConnection();
-        arrayOfSessions = sessionConnect.getSessionArray("1");
+        // arrayOfSessions =
+         sessionConnect.getSessionArray("2");
 
-        Log.d("testing", arrayOfSessions.toString());
+        //Log.d("testing", arrayOfSessions.toString());
 
-        // Create the adapter to convert the array to views
-        CustomSessionAdaptor adapter = new CustomSessionAdaptor(this, arrayOfSessions);
+        //// Create the adapter to convert the array to views
+        //CustomSessionAdaptor adapter = new CustomSessionAdaptor(this, arrayOfSessions);
         // Attach the adapter to a ListView
-        //ListView listView = (ListView) findViewById(R.id.lvUsers);
+        //ListView listView = (ListView) findViewById(R.id.lv_sessions_list);
         //listView.setAdapter(adapter);
     }
 }
