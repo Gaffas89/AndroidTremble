@@ -1,14 +1,20 @@
 package com.techzonecs.tremble.utilities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.techzonecs.tremble.controller.LoginPageActivity;
+import com.techzonecs.tremble.controller.ProfileViewActivity;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -18,43 +24,57 @@ import org.json.JSONObject;
 public class LoginConnection {
 
     String TAG = "TREMBLE";
-    public LoginPageActivity lpa = null;
+//    public LoginPageActivity lpa = null;
     boolean isLoggedIn = false;
-    boolean logIn(final String sisid, final String password){
 
-        String url = ConnectionURLString.url+"Login";
-        String tag_json_obj = "json_obj_req";
+    public boolean logIn(final String sisid, final String password, final Context context){
 
-//        Log.d("testing","before the before");
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
-                url, null,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-//                        Log.d("testing","before");
-                        try{
-                            JSONObject json = new JSONObject(response.getString("result_data"));
-                            Log.d("testing_json", json.toString());
-
-                            isLoggedIn = Boolean.parseBoolean(json.getString("flag"));
+        String url = ConnectionURLString.url+"Login?id_trainee="+sisid+"&password="+password;
+        // Tag used to cancel the request
+        String  tag_string_req = "string_req";
 
 
-                            } catch (Exception e){
+        StringRequest strReq = new StringRequest(Request.Method.GET,
+                url, new Response.Listener<String>() {
 
-                        }
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, response.toString());
+
+                try {
+                    JSONObject json = new JSONObject(response);
+                    JSONArray jsonArray = json.getJSONArray("result_data");
+                    JSONObject result = jsonArray.getJSONObject(0);
+                    isLoggedIn = Boolean.parseBoolean(result.getString("flag"));
+                    Log.d(TAG,"isLoggedIn: "+isLoggedIn);
+
+                    if (isLoggedIn){
+                        Intent i = new Intent(context, ProfileViewActivity.class);
+                        context.startActivity(i);
+                        //add finish here later
+                        Log.d(TAG,"intent here: SUCCESS");
+                    }else {
+                        Toast.makeText(context, "Log in Failed!", Toast.LENGTH_SHORT).show();
                     }
-                }, new Response.ErrorListener() {
+
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
+//                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Log.d(TAG, "ERROR!");
 
             }
         });
 
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+// Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        Log.d(TAG,""+isLoggedIn);
         return isLoggedIn;
 
     }

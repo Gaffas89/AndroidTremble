@@ -1,6 +1,7 @@
 package com.techzonecs.tremble.controller;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,9 +49,13 @@ public class LoginPageActivity extends AppCompatActivity {
 
                    // new LogInAsyncTask(etSISID.getText().toString(), etPassword.getText().toString());
 
+                    LoginConnection lc = new LoginConnection();
+                    boolean flag = lc.logIn(etSISID.getText().toString(), etPassword.getText().toString(), LoginPageActivity.this);
+                    Log.d("LOGINPAGE", ""+flag);
 
                 } else {
                     Toast.makeText(LoginPageActivity.this, "Log in failed! Check Credentials..", Toast.LENGTH_SHORT).show();
+                    Log.d("TOAST", "FAILED");
                 }
             }
         });
