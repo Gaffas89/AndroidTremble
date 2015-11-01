@@ -5,5 +5,5 @@ package com.techzonecs.tremble.utilities;
  * universal URL link connection to make our lives easier.s
  */
 public class ConnectionURLString {
-    static public final String url = "http://192.168.1.188:8080/TrembleBackend/";
+    static public final String url = "http://192.168.1.129:8080/TrembleBackend/";
 }
