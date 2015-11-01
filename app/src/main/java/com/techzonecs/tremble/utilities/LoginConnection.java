@@ -3,6 +3,7 @@ package com.techzonecs.tremble.utilities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -29,7 +30,11 @@ public class LoginConnection {
 //    public LoginPageActivity lpa = null;
     boolean isLoggedIn = false;
 
+    public final static String PREF_NAME="userInfo";
+
+
     public boolean logIn(final String sisid, final String password, final Context context){
+
 
         String url = ConnectionURLString.url+"Login?id_trainee="+sisid+"&password="+password;
         // Tag used to cancel the request
@@ -43,6 +48,11 @@ public class LoginConnection {
             public void onResponse(String response) {
                 Log.d(TAG, response.toString());
 
+                SharedPreferences prefs= context.getSharedPreferences(PREF_NAME, context.MODE_APPEND);
+
+
+
+
                 try {
                     JSONObject json = new JSONObject(response);
                     JSONArray jsonArray = json.getJSONArray("result_data");
@@ -52,16 +62,27 @@ public class LoginConnection {
 
                     if (isLoggedIn){
 
+                        SharedPreferences.Editor editor= prefs.edit();
+                        //Setting user info in Shared preferences to be retrieved anywhere
+                        editor.putBoolean("isLoggedIn", true);
+                        editor.putString("sisid", sisid + "");
+                        editor.putString("password", password);
+                        editor.putString("email", result.getString("email"));
+                        editor.putString("firstname", result.getString("firstname"));
+                        editor.putString("mobile", result.getString("mobile"));
+                        editor.putString("subject", result.getString("subject"));
+                        editor.putString("grade", result.getString("grade"));
 
+                        editor.commit();
 
                         Intent i = new Intent(context, ProfileViewActivity.class);
                         //sending the user info with the intent to the next page
-                        i.putExtra("sisid", sisid + "");
-                        i.putExtra("email", result.getString("email"));
-                        i.putExtra("firstname", result.getString("firstname"));
-                        i.putExtra("mobile",result.getString("mobile"));
-                        i.putExtra("subject",result.getString("subject"));
-                        i.putExtra("grade",result.getString("grade"));
+//                        i.putExtra("sisid", sisid + "");
+//                        i.putExtra("email", result.getString("email"));
+//                        i.putExtra("firstname", result.getString("firstname"));
+//                        i.putExtra("mobile",result.getString("mobile"));
+//                        i.putExtra("subject",result.getString("subject"));
+//                        i.putExtra("grade",result.getString("grade"));
 
                         context.startActivity(i);
 
