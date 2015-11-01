@@ -3,6 +3,7 @@
     package="com.techzonecs.tremble" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".utilities.AppController"
         android:allowBackup="true"
