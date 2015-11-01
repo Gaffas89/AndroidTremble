@@ -11,14 +11,14 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/TFfield_SISID"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/TFfield_pw"
         android:hint="SISID"
         android:textColorHint="#ecebeb"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:inputType="numberDecimal" />
 
     <EditText
         android:layout_width="wrap_content"

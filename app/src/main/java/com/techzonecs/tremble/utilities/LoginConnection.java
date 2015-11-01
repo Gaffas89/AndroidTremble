@@ -1,5 +1,6 @@
 package com.techzonecs.tremble.utilities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.techzonecs.tremble.controller.LoginPageActivity;
 import com.techzonecs.tremble.controller.ProfileViewActivity;
+import com.techzonecs.tremble.model.Trainee;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -49,9 +51,23 @@ public class LoginConnection {
                     Log.d(TAG,"isLoggedIn: "+isLoggedIn);
 
                     if (isLoggedIn){
+
+
+
                         Intent i = new Intent(context, ProfileViewActivity.class);
+                        //sending the user info with the intent to the next page
+                        i.putExtra("sisid", sisid + "");
+                        i.putExtra("email", result.getString("email"));
+                        i.putExtra("firstname", result.getString("firstname"));
+                        i.putExtra("mobile",result.getString("mobile"));
+                        i.putExtra("subject",result.getString("subject"));
+                        i.putExtra("grade",result.getString("grade"));
+
                         context.startActivity(i);
-                        //add finish here later
+
+                        //to finish the activity (not be able to go back)
+                        Activity temp = (Activity)context;
+                        temp.finish();
                         Log.d(TAG,"intent here: SUCCESS");
                     }else {
                         Toast.makeText(context, "Log in Failed!", Toast.LENGTH_SHORT).show();
@@ -78,72 +94,6 @@ public class LoginConnection {
         return isLoggedIn;
 
     }
-
-
-//    public void logIn(final String sisid, final String password){
-//        // Tag used to cancel the request
-//        String tag_json_obj = "json_obj_req";
-//
-//        String url = ConnectionURLString.url+"Login?id_trainee="+sisid+"&password="+password;
-//        Log.d(TAG, url);
-//
-//        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
-//                url, null,
-//                new Response.Listener<JSONObject>() {
-//
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.d(TAG, response.toString());
-//                        responseHandling(response);
-//
-//                    }
-//                }, new Response.ErrorListener() {
-//
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d(TAG, "Error: " + error.getMessage());
-//
-//            }
-//        }) {
-//
-//            @Override
-//            protected Map<String, String> getParams() {
-//                Map<String, String> params = new HashMap<String, String>();
-////                params.put("id_trainee", sisid);
-////
-////                params.put("password", password);
-//
-//                return params;
-//            }
-//
-//        };
-//
-//// Adding request to request queue
-//        AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
-//    }
-//
-//    void responseHandling(JSONObject response){
-//        try {
-//            JSONObject jsnobject = response;
-//            JSONArray jsonArray = jsnobject.getJSONArray("result_data");
-//
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                JSONObject tempObject = jsonArray.getJSONObject(i);
-//                String logInFlag = tempObject.getString("flag");
-//
-//                Log.d("test:",logInFlag.toString());
-//
-//                boolean flag = Boolean.parseBoolean(logInFlag);
-//                if (flag){
-//                    Toast.makeText(lpa, "ture!", Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(lpa, "FALSE!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        }catch (JSONException e){
-//
-//        }
-//    }
 
 
 }
