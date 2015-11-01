@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".controller.EditProfileActivity" >
         </activity>
+        <activity android:name=".controller.SplashScreenActivity" >
+        </activity>
     </application>
 
 </manifest>
