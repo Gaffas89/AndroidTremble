@@ -6,7 +6,7 @@ package com.techzonecs.tremble.model;
 public class Trainee {
 
     private String firstname;
-    private String lastname;
+    private int sisid;
     private String mobile;
     private String email;
     private String grade;
@@ -18,14 +18,6 @@ public class Trainee {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public String getMobile() {
@@ -58,5 +50,13 @@ public class Trainee {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public int getSisid() {
+        return sisid;
+    }
+
+    public void setSisid(int sisid) {
+        this.sisid = sisid;
     }
 }
