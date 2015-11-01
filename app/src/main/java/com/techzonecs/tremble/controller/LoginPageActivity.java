@@ -1,7 +1,5 @@
 package com.techzonecs.tremble.controller;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,19 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.StringRequest;
 import com.techzonecs.tremble.R;
-import com.techzonecs.tremble.model.Session;
-import com.techzonecs.tremble.utilities.AppController;
 //import com.techzonecs.tremble.utilities.LogInAsyncTask;
 import com.techzonecs.tremble.utilities.LoginConnection;
-import com.techzonecs.tremble.utilities.SessionConnection;
-
-import java.util.ArrayList;
 
 public class LoginPageActivity extends AppCompatActivity {
 
