@@ -124,6 +124,13 @@
                 android:textSize="22dp" />
         </LinearLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS Location"
+            android:id="@+id/btn_location_gps"
+            android:layout_gravity="right" />
+
     </LinearLayout>
 
 </LinearLayout>
