@@ -35,7 +35,8 @@
         android:layout_marginTop="5dp"
         android:singleLine="true"
         android:layout_below="@+id/editTextName"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="textEmailSubject" />
 
     <EditText
         android:layout_width="300dp"
