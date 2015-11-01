@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".controller.SplashScreenActivity" >
         </activity>
+        <activity android:name=".controller.QrMakerActivity" >
+        </activity>
     </application>
 
 </manifest>
