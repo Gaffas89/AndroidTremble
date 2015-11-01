@@ -12,15 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name=".controller.LoginPageActivity" >
+        </activity>
+        <activity android:name=".controller.SessionListViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.SessionListViewActivity" >
-        </activity>
         <activity android:name=".controller.ProfileViewActivity" >
+        </activity>
+        <activity android:name=".controller.ListItemViewActivity" >
+        </activity>
+        <activity android:name=".controller.EditProfileActivity" >
         </activity>
     </application>
 

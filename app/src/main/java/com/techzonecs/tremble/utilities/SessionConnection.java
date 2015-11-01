@@ -51,6 +51,7 @@ public class SessionConnection {
 
                         sessionArrayList.add(sess);
                     }
+                    Log.d("test",sessionArrayList.toString());
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -66,7 +67,7 @@ public class SessionConnection {
         });
 
 // Adding request to request queue
-       AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         return sessionArrayList;
     }
 }

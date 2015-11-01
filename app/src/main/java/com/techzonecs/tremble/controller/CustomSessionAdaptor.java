@@ -25,27 +25,20 @@ public class CustomSessionAdaptor extends ArrayAdapter<Session> {
         // Get the data item for this position
         Session session = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
+        Log.d("test", ""+position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.session_list_item, parent, false);
         }
+        Log.d("test", session.toString());
+
         // Lookup view for data population
-        TextView tvCourseName = (TextView) convertView.findViewById(R.id.tv_course_name);
-        TextView tvClassName = (TextView) convertView.findViewById(R.id.tv_class_name);
         TextView tvLocationName = (TextView) convertView.findViewById(R.id.tv_location_name);
-        Button btnLocationGps = (Button) convertView.findViewById(R.id.btn_location_gps);
-        TextView tvZone = (TextView) convertView.findViewById(R.id.tv_zone);
         TextView tvDate = (TextView) convertView.findViewById(R.id.tv_date);
-        TextView tvTrainerName = (TextView) convertView.findViewById(R.id.tv_trainer_name);
 
         // Populate the data into the template view using the data object
-        tvCourseName.setText(session.getCourseName());
-        tvClassName.setText(session.getClassName());
         tvLocationName.setText(session.getLocation());
-        tvZone.setText(session.getZone());
-        btnLocationGps.setText(session.getLocationGps());
-        tvTrainerName.setText(session.getTrainerName());
         tvDate.setText(session.getDate());
-        Log.d("test", session.getClassName());
+
         // Return the completed view to render on screen
         return convertView;
     }
