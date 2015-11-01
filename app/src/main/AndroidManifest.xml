@@ -14,11 +14,6 @@
         <activity android:name=".controller.LoginPageActivity" >
         </activity>
         <activity android:name=".controller.SessionListViewActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".controller.ProfileViewActivity" >
         </activity>
@@ -27,6 +22,11 @@
         <activity android:name=".controller.EditProfileActivity" >
         </activity>
         <activity android:name=".controller.SplashScreenActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
