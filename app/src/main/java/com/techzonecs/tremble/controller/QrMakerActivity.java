@@ -32,7 +32,7 @@ public class QrMakerActivity extends AppCompatActivity {
         imgLoader = ImageLoader.getInstance();
         imgLoader.init(config);
 
-        String Sisid = prefs.getString("firstname", "ERROR");
+        String Sisid = prefs.getString("sisid", "ERROR");
 
         qrImg = (ImageView) findViewById(R.id.iv_qr_code);
 
