@@ -21,11 +21,13 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:textColorHint="@color/dark_bgd"
         android:id="@+id/editTextName"
         android:layout_marginTop="26dp"
         android:singleLine="true"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/dark_bgd" />
 
     <EditText
         android:layout_width="300dp"
@@ -36,7 +38,8 @@
         android:singleLine="true"
         android:layout_below="@+id/editTextName"
         android:layout_centerHorizontal="true"
-        android:inputType="textEmailSubject" />
+        android:inputType="textEmailSubject"
+        android:textColorHint="@color/dark_bgd" />
 
     <EditText
         android:layout_width="300dp"
@@ -46,7 +49,8 @@
         android:layout_marginTop="5dp"
         android:singleLine="true"
         android:layout_below="@+id/editTextEmail"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@color/dark_bgd" />
 
     <EditText
         android:layout_width="300dp"
@@ -56,7 +60,8 @@
         android:layout_marginTop="5dp"
         android:singleLine="true"
         android:layout_below="@+id/editTextMobile"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@color/dark_bgd" />
 
     <EditText
         android:layout_width="300dp"
@@ -66,7 +71,8 @@
         android:layout_marginTop="5dp"
         android:singleLine="true"
         android:layout_below="@+id/editTextSubject"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@color/dark_bgd" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,7 +84,8 @@
         android:layout_marginTop="5dp"
         android:layout_below="@+id/editTextGrade"
         android:layout_alignStart="@+id/editTextGrade"
-        android:layout_alignEnd="@+id/editTextGrade" />
+        android:layout_alignEnd="@+id/editTextGrade"
+        android:textColorHint="@color/dark_bgd" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -90,7 +97,8 @@
         android:id="@+id/editTextConfirmPass"
         android:layout_below="@+id/editTextPassword"
         android:layout_alignStart="@+id/editTextPassword"
-        android:layout_alignEnd="@+id/editTextPassword" />
+        android:layout_alignEnd="@+id/editTextPassword"
+        android:textColorHint="@color/dark_bgd" />
 
     <Button
         android:layout_width="wrap_content"
