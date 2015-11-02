@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".controller.QrMakerActivity" >
         </activity>
+        <activity android:name=".controller.HomeActivity" >
+        </activity>
     </application>
 
 </manifest>

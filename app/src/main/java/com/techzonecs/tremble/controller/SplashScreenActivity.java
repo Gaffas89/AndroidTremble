@@ -35,7 +35,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Class nextClass = LoginPageActivity.class;
                 //To check if the user is already logged is, it would direct him/her to the Sessions view instead of the log in view
                 if(loggedin){
-                    nextClass= SessionListViewActivity.class;
+                    nextClass= HomeActivity.class;
                 }
                 //The intent to start the actual redirecting. depends on the previous if statement
                 Intent i=new Intent(SplashScreenActivity.this,nextClass);

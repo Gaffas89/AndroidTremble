@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.techzonecs.tremble.controller.HomeActivity;
 import com.techzonecs.tremble.controller.LoginPageActivity;
 import com.techzonecs.tremble.controller.ProfileViewActivity;
 import com.techzonecs.tremble.model.Trainee;
@@ -75,14 +76,7 @@ public class LoginConnection {
 
                         editor.commit();
 
-                        Intent i = new Intent(context, ProfileViewActivity.class);
-                        //sending the user info with the intent to the next page
-//                        i.putExtra("sisid", sisid + "");
-//                        i.putExtra("email", result.getString("email"));
-//                        i.putExtra("firstname", result.getString("firstname"));
-//                        i.putExtra("mobile",result.getString("mobile"));
-//                        i.putExtra("subject",result.getString("subject"));
-//                        i.putExtra("grade",result.getString("grade"));
+                        Intent i = new Intent(context, HomeActivity.class);
 
                         context.startActivity(i);
 
