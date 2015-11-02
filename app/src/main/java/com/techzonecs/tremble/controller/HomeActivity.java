@@ -29,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i1 = new Intent(HomeActivity.this, ProfileViewActivity.class);
                 startActivity(i1);
+                finish();
             }
         });
 
@@ -53,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i4 = new Intent(HomeActivity.this, ProfileViewActivity.class);
                 startActivity(i4);
+                finish();
             }
         });
 

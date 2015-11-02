@@ -54,6 +54,7 @@ public class ProfileViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ProfileViewActivity.this, EditProfileActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -65,6 +66,7 @@ public class ProfileViewActivity extends AppCompatActivity {
                 editor.commit();
                 Intent logOutIntent = new Intent(ProfileViewActivity.this, LoginPageActivity.class);
                 startActivity(logOutIntent);
+                finish();
             }
         });
 
@@ -75,5 +77,14 @@ public class ProfileViewActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
 
+    }
+
+    //to make users go back to the home page when the back button pressed
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(ProfileViewActivity.this, HomeActivity.class);
+        startActivity(i);
+        finish();
     }
 }

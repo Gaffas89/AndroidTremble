@@ -1,5 +1,6 @@
 package com.techzonecs.tremble.controller;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -99,6 +100,15 @@ public class EditProfileActivity extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    //to make users go back to the home page when the back button pressed
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(EditProfileActivity.this, ProfileViewActivity.class);
+        startActivity(i);
+        finish();
     }
 
 }

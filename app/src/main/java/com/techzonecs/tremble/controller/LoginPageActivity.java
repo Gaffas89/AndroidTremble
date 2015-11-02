@@ -31,11 +31,6 @@ public class LoginPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (longInValidaion()){
                     Log.d("LOGINPAGEACTIVITY", "SISID: "+etSISID.getText().toString()+" PASSWORD: "+etPassword.getText().toString());
-//                    LoginConnection lc = new LoginConnection();
-//                    lc.lpa = LoginPageActivity.this;
-//                    lc.logIn(etSISID.getText().toString(), etPassword.getText().toString());
-
-                   // new LogInAsyncTask(etSISID.getText().toString(), etPassword.getText().toString());
 
                     LoginConnection lc = new LoginConnection();
                     boolean flag = lc.logIn(etSISID.getText().toString(), etPassword.getText().toString(), LoginPageActivity.this);
