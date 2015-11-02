@@ -38,6 +38,7 @@ public class ProfileViewActivity extends AppCompatActivity {
 //        tvSubject.setText(intent.getStringExtra("subject"));
 //        tvGrade.setText(intent.getStringExtra("grade"));
 
+        //getting the information from shared preferences
         tvName.setText(prefs.getString("firstname", "ERROR"));
         tvSISID.setText(prefs.getString("sisid", "ERROR"));
         tvMobile.setText(prefs.getString("mobile", "ERROR"));

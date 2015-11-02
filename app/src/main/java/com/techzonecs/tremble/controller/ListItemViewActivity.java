@@ -21,7 +21,7 @@ public class ListItemViewActivity extends AppCompatActivity {
         Button btnLocationGps = (Button) this.findViewById(R.id.btn_location_gps);
         TextView tvZone = (TextView) this.findViewById(R.id.tv_zone);
         TextView tvDate = (TextView) this.findViewById(R.id.tv_date);
-        TextView tvTrainerName = (TextView) this.findViewById(R.id.tv_trainer_name);
+        TextView tvTrainerName = (TextView) this.findViewById(R.id.tv_trainer);
 
 
         tvClassName.setText(getIntent().getStringExtra("class_name"));
