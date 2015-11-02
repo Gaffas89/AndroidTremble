@@ -15,7 +15,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Start Date"
             android:id="@+id/tv_date"
-            android:clickable="false" />
+            android:clickable="false"
+            android:textColor="@color/dark_bgd" />
 
         <TextView
             android:layout_width="match_parent"
@@ -23,7 +24,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="End Date"
             android:id="@+id/tv_end_date"
-            android:textAlignment="textEnd" />
+            android:textAlignment="textEnd"
+            android:textColor="@color/dark_bgd" />
 
     </LinearLayout>
 
@@ -35,13 +37,14 @@
         android:id="@+id/tv_location_name"
         android:textSize="30dp"
         android:textAlignment="center"
-        android:paddingBottom="13dp" />
+        android:paddingBottom="13dp"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:id="@+id/textView14"
         android:layout_gravity="center_horizontal"
-        android:background="#0000FF" />
+        android:background="@color/light_bgd" />
 
 </LinearLayout>

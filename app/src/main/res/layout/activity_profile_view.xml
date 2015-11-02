@@ -40,7 +40,8 @@
         android:layout_below="@+id/textViewName"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
         android:layout_marginLeft="20dp"
         android:layout_centerVertical="true"
         android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +65,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,7 +77,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/textView5"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,7 +89,8 @@
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,7 +101,8 @@
         android:layout_alignTop="@+id/textView3"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/textView6"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,7 +115,8 @@
         android:layout_below="@+id/textViewSISID"
         android:layout_marginTop="20dp"
         android:layout_alignStart="@+id/textViewSISID"
-        android:layout_alignEnd="@+id/textViewSISID" />
+        android:layout_alignEnd="@+id/textViewSISID"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,7 +127,8 @@
         android:gravity="center"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignEnd="@+id/textViewEmail"
-        android:layout_alignStart="@+id/textViewEmail" />
+        android:layout_alignStart="@+id/textViewEmail"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -131,7 +139,8 @@
         android:gravity="center"
         android:layout_above="@+id/textView7"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView6" />
+        android:layout_toEndOf="@+id/textView6"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -142,7 +151,8 @@
         android:gravity="center"
         android:layout_alignTop="@+id/textView7"
         android:layout_alignEnd="@+id/textViewSubject"
-        android:layout_toEndOf="@+id/textView6" />
+        android:layout_toEndOf="@+id/textView6"
+        android:textColor="@color/dark_bgd" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
