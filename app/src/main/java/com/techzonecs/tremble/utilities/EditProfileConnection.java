@@ -29,7 +29,7 @@ public class EditProfileConnection {
 
     public void editProfileConnection(final String sisid, final String name, final String password, final String email, final String mobile, final String subject, final String grade, final Context context){
 
-
+        Log.d(TAG, "INFO SENT: "+sisid+", "+name+", "+email+", "+mobile+", "+subject+", "+grade);
         String url = ConnectionURLString.url+"EditUserProfile?name="+name+"&password="+password+"&id_trainee="+sisid+"&mobile="+mobile+"&email="+email+"&subject="+subject+"&grade="+grade;
         // Tag used to cancel the request
         String  tag_string_req = "string_req";
@@ -49,10 +49,10 @@ public class EditProfileConnection {
 
 
                 try {
-                    JSONObject json = new JSONObject(response);
-                    JSONObject result = json.getJSONObject("result_code");
+//                    JSONObject json = new JSONObject(response);
+//                    JSONObject result = json.getJSONObject("result_code");
 
-                    int result_code = Integer.parseInt(result.toString());
+//                    int result_code = Integer.parseInt(result.toString());
 
 //                    if ( result_code == 0){
 
@@ -69,15 +69,15 @@ public class EditProfileConnection {
                         editor.commit();
 
                         pDialog.dismiss();
+
                         Intent i = new Intent(context, ProfileViewActivity.class);
-
-
                         context.startActivity(i);
-
                         //to finish the activity (not be able to go back)
                         Activity temp = (Activity)context;
                         temp.finish();
                         Log.d(TAG,"intent here: SUCCESS");
+
+
 //                    }else {
 //                        pDialog.dismiss();
 //                        Toast.makeText(context, "Log in Failed!", Toast.LENGTH_SHORT).show();

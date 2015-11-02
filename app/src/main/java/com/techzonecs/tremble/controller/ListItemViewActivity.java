@@ -28,7 +28,7 @@ public class ListItemViewActivity extends AppCompatActivity {
         tvCourseName.setText(getIntent().getStringExtra("course_name"));
         tvLocationName.setText(getIntent().getStringExtra("location_name"));
         tvZone.setText(getIntent().getStringExtra("zone"));
-        tvDate.setText(getIntent().getStringExtra("date"));
+     //   tvDate.setText(getIntent().getStringExtra("date"));
         tvTrainerName.setText(getIntent().getStringExtra("trainer_name"));
         btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location"));
 
