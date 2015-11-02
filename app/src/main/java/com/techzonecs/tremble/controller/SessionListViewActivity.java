@@ -37,7 +37,7 @@ public class SessionListViewActivity extends AppCompatActivity {
     public void getSessionArray(String trainee){
         String tag_string_req = "string_req";
 
-        String url = "http://192.168.1.129:8080/TrembleBackend/GetSessions?id_trainee=" + trainee;
+        String url = "http://192.168.1.175:8080/TrembleBackend/GetSessions?id_trainee=" + trainee;
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
                 url, new Response.Listener<String>() {
