@@ -3,4 +3,5 @@
     <color name="dark_bgd">#663300</color>
     <color name="light_bgd">#FF6600</color>
     <color name="bgd">#FFFFFF</color>
+    <color name="blue">#66CCFF</color>
 </resources>

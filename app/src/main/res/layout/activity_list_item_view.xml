@@ -22,6 +22,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/tv_trainer"
+            android:textStyle="bold"
             android:textSize="40dp" />
 
         <TextView
@@ -34,7 +35,9 @@
             android:layout_alignStart="@+id/tv_date"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:textSize="33dp" />
+            android:textSize="33dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +48,8 @@
             android:layout_below="@+id/tv_course_name"
             android:layout_toStartOf="@+id/tv_zone"
             android:layout_gravity="center_horizontal"
-            android:textSize="22dp" />
+            android:textSize="22dp"
+            android:textColor="@color/blue" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,7 +61,8 @@
             android:layout_alignBottom="@+id/tv_class_name"
             android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
-            android:textSize="22dp" />
+            android:textSize="22dp"
+            android:textColor="@color/blue" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -71,7 +76,9 @@
                 android:layout_height="wrap_content"
                 android:text="Trainer : "
                 android:id="@+id/tv_Trainer_Name"
-                android:textSize="22dp" />
+                android:textStyle="bold"
+                android:textSize="22dp"
+                android:textColor="@color/dark_bgd" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +88,8 @@
                 android:layout_below="@+id/tv_class_name"
                 android:layout_alignStart="@+id/tv_class_name"
                 android:text="Trainer Name"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="@color/dark_bgd" />
 
         </LinearLayout>
 
@@ -97,7 +105,8 @@
                 android:text="2015 - 11 - 2"
                 android:id="@+id/textView8"
                 android:layout_gravity="center_horizontal"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="@color/light_bgd" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,7 +114,8 @@
                 android:text="2015 - 11 - 3"
                 android:id="@+id/textView11"
                 android:layout_gravity="center_horizontal"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="@color/light_bgd" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,7 +123,8 @@
                 android:text="2015 - 11 - 4"
                 android:id="@+id/textView12"
                 android:layout_gravity="center_horizontal"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="@color/light_bgd" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,7 +132,8 @@
                 android:text="2015 - 11 - 5"
                 android:id="@+id/textView13"
                 android:layout_gravity="center_horizontal"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="@color/light_bgd" />
         </LinearLayout>
 
         <Button
