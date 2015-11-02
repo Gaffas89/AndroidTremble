@@ -27,7 +27,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         TextView tvSubject = (TextView) findViewById(R.id.textViewSubject);
         TextView tvGrade = (TextView) findViewById(R.id.textViewGrade);
 
-        SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
+        final SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
 
 
 //        Intent intent = getIntent();
@@ -46,7 +46,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         tvSubject.setText(prefs.getString("subject", "ERROR"));
         tvGrade.setText(prefs.getString("grade", "ERROR"));
 
-
+        Button logOut = (Button)findViewById(R.id.buttonLogOut);
         Button editProfile = (Button) findViewById(R.id.buttonEdit);
 
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +54,17 @@ public class ProfileViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ProfileViewActivity.this, EditProfileActivity.class);
                 startActivity(i);
+            }
+        });
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor= prefs.edit();
+                editor.putBoolean("isLoggedIn", false);
+                editor.commit();
+                Intent logOutIntent = new Intent(ProfileViewActivity.this, LoginPageActivity.class);
+                startActivity(logOutIntent);
             }
         });
 
