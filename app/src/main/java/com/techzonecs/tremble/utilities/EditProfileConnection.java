@@ -30,7 +30,7 @@ public class EditProfileConnection {
     public void editProfileConnection(final String sisid, final String name, final String password, final String email, final String mobile, final String subject, final String grade, final Context context){
 
 
-        String url = ConnectionURLString.url+"EditUserProfile?firstname="+name+"&password="+password+"&id_trainee="+sisid+"&mobile="+mobile+"&email="+email+"&subject="+subject+"&grade="+grade;
+        String url = ConnectionURLString.url+"EditUserProfile?name="+name+"&password="+password+"&id_trainee="+sisid+"&mobile="+mobile+"&email="+email+"&subject="+subject+"&grade="+grade;
         // Tag used to cancel the request
         String  tag_string_req = "string_req";
 
