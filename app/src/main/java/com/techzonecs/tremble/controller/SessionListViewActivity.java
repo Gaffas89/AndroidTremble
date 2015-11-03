@@ -15,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
 import com.techzonecs.tremble.utilities.AppController;
+import com.techzonecs.tremble.utilities.ConnectionURLString;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,7 +38,7 @@ public class SessionListViewActivity extends AppCompatActivity {
     public void getSessionArray(String trainee){
         String tag_string_req = "string_req";
 
-        String url = "http://192.168.1.175:8080/TrembleBackend/GetSessions?id_trainee=" + trainee;
+        String url = ConnectionURLString.url + "GetSessions?id_trainee=" + trainee;
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
                 url, new Response.Listener<String>() {

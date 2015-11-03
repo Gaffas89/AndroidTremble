@@ -14,6 +14,7 @@ import com.techzonecs.tremble.model.Session;
 
 import java.util.ArrayList;
 
+// Populates different sessions for each item in the list
 public class CustomSessionAdaptor extends ArrayAdapter<Session> {
 
     public CustomSessionAdaptor(Context context, ArrayList<Session> users) {

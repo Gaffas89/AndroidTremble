@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.utilities.EditProfileConnection;
 
+//Edit profile controller to populate and validate the inputes
 public class EditProfileActivity extends AppCompatActivity {
 
     public final static String PREF_NAME="userInfo";
