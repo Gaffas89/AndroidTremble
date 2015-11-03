@@ -16,6 +16,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Lookup view for data population
         ImageView ivProfile = (ImageView)findViewById(R.id.imageViewProfile);
         ImageView ivAttendance = (ImageView)findViewById(R.id.imageViewAttendance);
         ImageView ivSessions = (ImageView)findViewById(R.id.imageViewSession);
@@ -24,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         TextView tvAttendance = (TextView)findViewById(R.id.textViewAttendance);
         TextView tvSessions = (TextView)findViewById(R.id.textViewSessions);
 
+        // Setting the home buttons navigation
         ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

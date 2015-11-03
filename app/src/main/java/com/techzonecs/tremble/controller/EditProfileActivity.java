@@ -52,6 +52,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         Button save = (Button)findViewById(R.id.buttonSave);
 
+        // Defining the save button`s functionality
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
+    //the validation function to check if the fields are correct or empty
     public boolean validateEdit(){
 
         if(etName.getText().toString().equals("")){
