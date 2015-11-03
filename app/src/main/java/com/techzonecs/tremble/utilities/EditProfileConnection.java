@@ -49,13 +49,6 @@ public class EditProfileConnection {
 
 
                 try {
-//                    JSONObject json = new JSONObject(response);
-//                    JSONObject result = json.getJSONObject("result_code");
-
-//                    int result_code = Integer.parseInt(result.toString());
-
-//                    if ( result_code == 0){
-
                         SharedPreferences.Editor editor= prefs.edit();
                         //Setting user info in Shared preferences to be retrieved anywhere
 
@@ -77,12 +70,6 @@ public class EditProfileConnection {
                         temp.finish();
                         Log.d(TAG,"intent here: SUCCESS");
 
-
-//                    }else {
-//                        pDialog.dismiss();
-//                        Toast.makeText(context, "Log in Failed!", Toast.LENGTH_SHORT).show();
-//                    }
-
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -92,13 +79,12 @@ public class EditProfileConnection {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-//                VolleyLog.d(TAG, "Error: " + error.getMessage());
                 Log.d(TAG, "ERROR!");
 
             }
         });
 
-// Adding request to request queue
+        // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
 
     }

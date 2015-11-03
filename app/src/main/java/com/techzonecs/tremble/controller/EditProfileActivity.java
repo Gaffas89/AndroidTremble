@@ -29,6 +29,7 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
+        // Lookup view for data population
         etName = (EditText) findViewById(R.id.editTextName);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etMobile = (EditText) findViewById(R.id.editTextMobile);
@@ -37,8 +38,10 @@ public class EditProfileActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.editTextPassword);
         etConfirmPass = (EditText) findViewById(R.id.editTextConfirmPass);
 
+        // Getting the local data from the shared preferences
         final SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
 
+        // Populate the data into the template view using the data object
         etName.setText(prefs.getString("firstname", "ERROR"));
         etEmail.setText(prefs.getString("email", "ERROR"));
         etMobile.setText(prefs.getString("mobile", "ERROR"));
