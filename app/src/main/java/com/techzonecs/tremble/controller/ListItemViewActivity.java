@@ -30,12 +30,11 @@ public class ListItemViewActivity extends AppCompatActivity {
         tvZone.setText(getIntent().getStringExtra("zone"));
      //   tvDate.setText(getIntent().getStringExtra("date"));
         tvTrainerName.setText(getIntent().getStringExtra("trainer_name"));
-        btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location"));
+        btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location").toString());
 
         btnLocationGps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
             }
         });
