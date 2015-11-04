@@ -50,7 +50,7 @@
                 android:layout_height="120dp"
                 android:id="@+id/imageViewAttendance"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/ic_attendance2"
+                android:background="@drawable/qrPage"
                 android:layout_below="@+id/imageViewSession"
                 android:layout_alignStart="@+id/imageViewSession"
                 android:layout_marginLeft="20dp" />
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Attendance"
+                android:text="QR Code"
                 android:id="@+id/textViewAttendance"
                 android:layout_alignBottom="@+id/imageViewAttendance"
                 android:layout_alignStart="@+id/textViewSessions"

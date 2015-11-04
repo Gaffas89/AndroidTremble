@@ -1,6 +1,8 @@
 package com.techzonecs.tremble.controller;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -60,8 +62,6 @@ public class EvaluationListActivity extends ActionBarActivity {
     String  tag_string_req = "string_req";
 
     public void getQuestionsArray(final Context context) {
-
-        String tag_string_req = "string_req";
 
         String url = ConnectionURLString.url + "GetQuestions";
 
@@ -181,9 +181,21 @@ public class EvaluationListActivity extends ActionBarActivity {
             {
                 Toast.makeText(EvaluationListActivity.this, "Your Evaluation has been submitted", Toast.LENGTH_SHORT).show();
                 final SharedPreferences prefs= getSharedPreferences("userInfo", MODE_APPEND);
-                String url = ConnectionURLString.url + "EvaluationAnswers?id_trainee=" + prefs.getString("sisid", "ERROR") +"&id_class=" + prefs.getString("class_id", "ERROR");
+                String url = ConnectionURLString.url + "EvaluationAnswers?id_trainee=" + prefs.getString("sisid", "ERROR") +"&id_class=" + getIntent().getStringExtra("id_class");
 
-                Log.d("testing" , url);
+                for (int i = 0; i < chosen_answer.length ; i++)
+                {
+                    url += "&answers[]=" + chosen_answer[i];
+                }
+
+                url += "&id_session=" + getIntent().getStringExtra("id_session");
+                sendEvaluation(url);
+
+                Intent i = new Intent(EvaluationListActivity.this , HomeActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+
 
             }
         }
@@ -191,5 +203,24 @@ public class EvaluationListActivity extends ActionBarActivity {
         {
             Toast.makeText(EvaluationListActivity.this, "Please fill in all the choices", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void sendEvaluation(String url) {
+        StringRequest strReq = new StringRequest(Request.Method.GET,
+                url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 }
