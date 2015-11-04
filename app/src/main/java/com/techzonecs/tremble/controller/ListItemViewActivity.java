@@ -29,7 +29,10 @@ public class ListItemViewActivity extends AppCompatActivity {
         TextView tvLocationName = (TextView) this.findViewById(R.id.tv_location_name);
         //Button btnLocationGps = (Button) this.findViewById(R.id.btn_location_gps);
         TextView tvZone = (TextView) this.findViewById(R.id.tv_zone);
-        //TextView tvDate = (TextView) this.findViewById(R.id.tv_date);
+        TextView tvDate1 = (TextView) this.findViewById(R.id.textView1stDate);
+        TextView tvDate2 = (TextView) this.findViewById(R.id.textView2ndDate);
+        TextView tvDate3 = (TextView) this.findViewById(R.id.textView3rdDate);
+        TextView tvDate4 = (TextView) this.findViewById(R.id.textView4thDate);
         TextView tvTrainerName = (TextView) this.findViewById(R.id.tv_trainer);
         //Button btnEvaluation = (Button) this.findViewById(R.id.btn_evaluation);
 
@@ -42,7 +45,13 @@ public class ListItemViewActivity extends AppCompatActivity {
         classId = getIntent().getStringExtra("class_id");
         sessionId = getIntent().getStringExtra("session_id");
 
-        //tvDate.setText(getIntent().getStringExtra("date")); // to be added once the session back end is fixed
+        String tempStringDates = getIntent().getStringExtra("dates");
+        String[] dates = tempStringDates.split(",", -1);
+        tvDate1.setText(dates[0]);
+        tvDate2.setText(dates[1]);
+        tvDate3.setText(dates[2]);
+        tvDate4.setText(dates[3]);
+
         tvTrainerName.setText(getIntent().getStringExtra("trainer_name"));
         //btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location").toString());
 

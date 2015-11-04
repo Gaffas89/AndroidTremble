@@ -80,7 +80,13 @@ public class SessionListViewActivity extends AppCompatActivity {
                 Session sess = new Session();
                 sess.setClassName(json.getString("class_name"));
                 sess.setCourseName(json.getString("course_name"));
-                sess.setDate(json.getString("wave_date"));
+
+                String tempDates = json.getString("wave_date");
+                String[] dates = tempDates.split(",", -1);
+                for (int k = 0; k<4; k++){
+                    Log.d("ARRAY OF DATES "+k+": ",dates[k]);
+                }
+                sess.setDate(dates);
                 sess.setLocation(json.getString("location_name"));
                 sess.setLocationGps(json.getString("location_gps"));
                 sess.setTrainerName(json.getString("trainer_name"));
@@ -122,7 +128,13 @@ public class SessionListViewActivity extends AppCompatActivity {
             i.putExtra("location_gps", arrayOfSessions.get((int) id).getLocationGps());
             i.putExtra("trainer_name", arrayOfSessions.get((int) id).getTrainerName());
             i.putExtra("zone", arrayOfSessions.get((int) id).getZone());
-            i.putExtra("date", arrayOfSessions.get((int) id).getDate());
+
+            String[] tempDatesArray = arrayOfSessions.get((int) id).getDate();
+            String datesString = tempDatesArray[0];
+            for (int k = 1; k<tempDatesArray.length; k++){
+                datesString = datesString+","+tempDatesArray[k];
+            }
+            i.putExtra("dates", datesString);
             i.putExtra("class_id", arrayOfSessions.get((int) id).getId_class());
             i.putExtra("session_id", arrayOfSessions.get((int) id).getId_session());
 

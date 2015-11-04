@@ -32,11 +32,16 @@ public class CustomSessionAdaptor extends ArrayAdapter<Session> {
 
         // Lookup view for data population
         TextView tvLocationName = (TextView) convertView.findViewById(R.id.tv_location_name);
-        TextView tvDate = (TextView) convertView.findViewById(R.id.tv_date);
+        TextView tvDate1 = (TextView) convertView.findViewById(R.id.tv_date);
+        TextView tvDate2 = (TextView) convertView.findViewById(R.id.tv_end_date);
+
 
         // Populate the data into the template view using the data object
         tvLocationName.setText(session.getLocation());
-        tvDate.setText(session.getDate());
+        String[] dates = session.getDate();
+        tvDate1.setText(dates[0]);
+        tvDate2.setText(dates[3]);
+
 
         // Return the completed view to render on screen
         return convertView;

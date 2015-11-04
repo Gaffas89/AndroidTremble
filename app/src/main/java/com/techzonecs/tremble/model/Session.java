@@ -5,7 +5,7 @@ package com.techzonecs.tremble.model;
  */
 public class Session {
 
-    private String date;
+    private String[] date;
     private String location;
     private String className;
     private String courseName;
@@ -16,25 +16,27 @@ public class Session {
     private String id_session;
 
 
+    public Session(String courseName, String[] date, String location, String className, String locationGps, String zone, String trainerName, String id_class, String id_session) {
+        this.courseName = courseName;
+        this.date = date;
+        this.location = location;
+        this.className = className;
+        this.locationGps = locationGps;
+        this.zone = zone;
+        this.trainerName = trainerName;
+        this.id_class = id_class;
+        this.id_session = id_session;
+    }
+
     public Session(){
 
     }
 
-    public Session(String newDate, String newLocation, String newClassName, String newCourseName, String newLocationGps, String newZone, String newTrainerName){
-        this.date = newDate;
-        this.location = newLocation;
-        this.className = newClassName;
-        this.courseName = newCourseName;
-        this.locationGps = newLocationGps;
-        this.zone = newZone;
-        this.trainerName = newTrainerName;
-    }
-
-    public String getDate() {
+    public String[] getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(String[] date) {
         this.date = date;
     }
 
