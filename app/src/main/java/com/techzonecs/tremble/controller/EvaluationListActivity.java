@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -35,6 +36,7 @@ public class EvaluationListActivity extends ActionBarActivity {
     public ArrayList<Question> questionArrayList = new ArrayList<Question>();
 
     ArrayList<Question> mappedSecsion[];
+    int chosen_answer[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,6 @@ public class EvaluationListActivity extends ActionBarActivity {
         EvaluationCustomAdaptor adapter = new EvaluationCustomAdaptor(this, mappedSecsion[section]);
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.lv_Questions);
-        Log.d("after adaptor", "submit_Answers");
         listView.setAdapter(adapter);
     }
 
@@ -91,9 +92,8 @@ public class EvaluationListActivity extends ActionBarActivity {
                     mappedSecsion[section].add(questionArrayList.get(i));
                 }
 
-                Log.d("before", arrayOfQuestions.toString());
-
                 populateSessionList(sectionPage);
+                chosen_answer = new int[questionArrayList.size()];
 
             }
         }, new Response.ErrorListener() {
@@ -105,7 +105,6 @@ public class EvaluationListActivity extends ActionBarActivity {
             }
         });
 
-        Log.d("before", strReq.toString());
 // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
 
@@ -117,10 +116,7 @@ public class EvaluationListActivity extends ActionBarActivity {
         try{
             JSONObject jsonResponse = new JSONObject(str);
             String answer = jsonResponse.getString("result_data");
-            Log.d("submit_Answers", answer);
             JSONArray jsonArray = new JSONArray(answer);
-            Log.d("test1", ""+jsonArray.length());
-
 
             for(int i = 0; i < jsonArray.length() ; i++)
             {
@@ -131,12 +127,9 @@ public class EvaluationListActivity extends ActionBarActivity {
                 question.setQuestion_Id(Integer.parseInt(json.getString("question_id")));
                 question.setQuestion_Section(Integer.parseInt(json.getString("section")));
 
-
                 questionsArrayList.add(question);
             }
 
-
-            Log.d("array", questionsArrayList.toString());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -144,9 +137,53 @@ public class EvaluationListActivity extends ActionBarActivity {
         return questionsArrayList;
     }
 
+    boolean flag = false;
     public void submit_Answers(View v) {
 
-        populateSessionList(++sectionPage);
+
+        ListView listView = (ListView) findViewById(R.id.lv_Questions);
+
+        for(int i = 0; i < mappedSecsion[sectionPage].size() ; i++)
+        {
+            View viewInCell = listView.getChildAt(i);
+            radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
+            Log.d("radio button", ""+radioGroup.getCheckedRadioButtonId());
+
+            if(radioGroup.getCheckedRadioButtonId() == -1)
+            {
+                Log.d("statement", ""+i);
+                flag = false;
+            }
+            else
+            {
+                Log.d("statement", ""+i);
+                flag = true;
+            }
+        }
+
+
+
+
+        if(flag)
+        {
+            for(int i = 0; i < mappedSecsion[sectionPage].size() ; i++)
+            {
+                View viewInCell = listView.getChildAt(i);
+                radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
+                question_id = (TextView) viewInCell.findViewById(R.id.tv_question_id);
+                int chosenID = radioGroup.getCheckedRadioButtonId();
+                radioButton = (RadioButton) findViewById(chosenID);
+
+                int q_id = Integer.parseInt(question_id.getText().toString());
+                chosen_answer[q_id] = Integer.parseInt(radioButton.getText().toString());
+            }
+
+            populateSessionList(++sectionPage);
+        }
+        else
+        {
+            Toast.makeText(EvaluationListActivity.this, "Please fill in all the choices", Toast.LENGTH_SHORT).show();
+        }
 //        String replyString = ConnectionURLString.url ;
 //
 //        int answers[] = new int[questionArrayList.size()];
@@ -155,16 +192,15 @@ public class EvaluationListActivity extends ActionBarActivity {
 //        for (int i = 0; i < 5; i++) {
 //            View viewInCell = listView.getChildAt(i);
 //
-//            //Log.d("id",""+ viewInCell.findViewById(R.id.tv_question_id));
-////            question_id = (TextView) viewInCell.findViewById(R.id.tv_question_id);
-////            radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
-////
-////            int chosenID = radioGroup.getCheckedRadioButtonId();
-////            radioButton = (RadioButton) findViewById(chosenID);
-////            Log.d(""+radioButton.getText().toString(),"test");
+//            question_id = (TextView) viewInCell.findViewById(R.id.tv_question_id);
+//            radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
+//
+//            int chosenID = radioGroup.getCheckedRadioButtonId();
+//            radioButton = (RadioButton) findViewById(chosenID);
+//            Log.d(""+radioButton.getText().toString(),"test");
 //
 //
-//           // replyString += "&answers[]=" + ;
+//            replyString += "&answers[]=" + ;
 //        }
     }
 }

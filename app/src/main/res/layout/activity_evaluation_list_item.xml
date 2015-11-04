@@ -16,7 +16,8 @@
         android:text="Large Text"
         android:id="@+id/tv_Question"
         android:layout_below="@+id/tv_Section"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/dark_bgd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,50 +26,74 @@
         android:text="Medium Text"
         android:id="@+id/tv_Section"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/rb_5" />
+        android:layout_toEndOf="@+id/rb_5"
+        android:textColor="@color/blue"
+        android:layout_marginTop="5dp" />
 
     <RadioGroup
-        android:layout_width="347dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:clickable="false"
         android:id="@+id/rg_chosen_answer"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poor"
+            android:id="@+id/textView"
+            android:textColor="@color/dark_bgd" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
             android:id="@+id/rb_1"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="@color/dark_bgd"
+            android:text="1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
             android:id="@+id/rb_2"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="@color/dark_bgd"
+            android:text="2" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
             android:id="@+id/rb_3"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="@color/dark_bgd"
+            android:text="3" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
             android:id="@+id/rb_4"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="@color/dark_bgd"
+            android:text="4" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5"
             android:id="@+id/rb_5"
-            android:checked="false" />
+            android:checked="false"
+            android:textColor="@color/dark_bgd"
+            android:text="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excellent"
+            android:id="@+id/textView9"
+            android:textColor="@color/dark_bgd" />
+
     </RadioGroup>
 
     <TextView
@@ -78,5 +103,12 @@
         android:text="Small Text"
         android:id="@+id/tv_question_id"
         android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/textView14"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/light_bgd" />
 
 </LinearLayout>

@@ -22,18 +22,18 @@
         <activity android:name=".controller.EditProfileActivity" >
         </activity>
         <activity android:name=".controller.SplashScreenActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".controller.QrMakerActivity" >
         </activity>
         <activity android:name=".controller.HomeActivity" >
         </activity>
         <activity android:name=".controller.EvaluationListActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
