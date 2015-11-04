@@ -1,6 +1,7 @@
 package com.techzonecs.tremble.controller;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,6 +68,7 @@ public class SessionListViewActivity extends AppCompatActivity {
 
     private ArrayList<Session> parseJson(String str){
 
+        final SharedPreferences prefs= getSharedPreferences("userInfo", MODE_APPEND);
         ArrayList<Session> sessionArrayList = new ArrayList<>();
         try{
             JSONObject jsonResponse = new JSONObject(str);
@@ -84,6 +86,15 @@ public class SessionListViewActivity extends AppCompatActivity {
                 sess.setLocationGps(json.getString("location_gps"));
                 sess.setTrainerName(json.getString("trainer_name"));
                 sess.setZone(json.getString("zone"));
+                sess.setId_session(json.getString("id_session"));
+                sess.setId_class(json.getString("id_class"));
+
+//                SharedPreferences.Editor editor= prefs.edit();
+//                editor.putString("class_id", json.getString("id_class"));
+//                editor.commit();
+//                Log.d("checking", json.getString("id_class"));
+//
+//                Log.d("checking", prefs.getString("id_class", "ERROR"));
 
                 sessionArrayList.add(sess);
             }
@@ -120,6 +131,9 @@ public class SessionListViewActivity extends AppCompatActivity {
             i.putExtra("trainer_name", arrayOfSessions.get((int) id).getTrainerName());
             i.putExtra("zone", arrayOfSessions.get((int) id).getZone());
             i.putExtra("date", arrayOfSessions.get((int) id).getDate());
+            i.putExtra("class_id", arrayOfSessions.get((int) id).getId_class());
+            i.putExtra("date", arrayOfSessions.get((int) id).getDate());
+
 
             startActivity(i);
         }

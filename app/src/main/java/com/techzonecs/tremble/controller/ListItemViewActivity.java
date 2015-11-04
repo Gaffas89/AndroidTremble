@@ -2,6 +2,7 @@ package com.techzonecs.tremble.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ public class ListItemViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_item_view);
+
+
 
         // linking all the fields of the xml
         TextView tvCourseName = (TextView) this.findViewById(R.id.tv_course_name);
@@ -33,7 +36,7 @@ public class ListItemViewActivity extends AppCompatActivity {
 
         //tvDate.setText(getIntent().getStringExtra("date")); // to be added once the session back end is fixed
         tvTrainerName.setText(getIntent().getStringExtra("trainer_name"));
-        btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location").toString());
+        //btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location").toString());
 
         //set the function of the gps button to navigate to the map
         btnLocationGps.setOnClickListener(new View.OnClickListener() {

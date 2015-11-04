@@ -12,6 +12,8 @@ public class Session {
     private String locationGps;
     private String zone;
     private String trainerName;
+    private String id_class;
+    private String id_session;
 
 
     public Session(){
@@ -82,5 +84,21 @@ public class Session {
 
     public void setTrainerName(String trainerName) {
         this.trainerName = trainerName;
+    }
+
+    public String getId_class() {
+        return id_class;
+    }
+
+    public void setId_class(String id_class) {
+        this.id_class = id_class;
+    }
+
+    public String getId_session() {
+        return id_session;
+    }
+
+    public void setId_session(String id_session) {
+        this.id_session = id_session;
     }
 }

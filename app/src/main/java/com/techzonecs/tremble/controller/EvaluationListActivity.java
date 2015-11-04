@@ -81,12 +81,6 @@ public class EvaluationListActivity extends ActionBarActivity {
                 mappedSecsion[2] = new ArrayList();
                 mappedSecsion[3] = new ArrayList();
 
-                Log.d("listing", mappedSecsion[0].toString());
-                Log.d("listing", mappedSecsion[1].toString());
-                Log.d("listing", mappedSecsion[2].toString());
-                Log.d("listing", mappedSecsion[3].toString());
-                Log.d("listing", mappedSecsion.toString());
-
                 for (int i = 0; i < questionArrayList.size() ; i++)
                 {
                     int section = questionArrayList.get(i).getQuestion_Section() - 1;
@@ -187,8 +181,9 @@ public class EvaluationListActivity extends ActionBarActivity {
             {
                 Toast.makeText(EvaluationListActivity.this, "Your Evaluation has been submitted", Toast.LENGTH_SHORT).show();
                 final SharedPreferences prefs= getSharedPreferences("userInfo", MODE_APPEND);
-                String url = ConnectionURLString.url + "EvaluationAnswers?id_trainee=" + prefs.getString("sisid", "ERROR") +"id_class=";
+                String url = ConnectionURLString.url + "EvaluationAnswers?id_trainee=" + prefs.getString("sisid", "ERROR") +"&id_class=" + prefs.getString("class_id", "ERROR");
 
+                Log.d("testing" , url);
 
             }
         }
