@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.utilities.EditProfileConnection;
 
+import java.net.URLEncoder;
+
 //Edit profile controller to populate and validate the inputes
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -58,7 +60,15 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(validateEdit()){
                     EditProfileConnection ep = new EditProfileConnection();
-                    ep.editProfileConnection(prefs.getString("sisid", "ERROR"), etName.getText().toString(),etPassword.getText().toString(),etEmail.getText().toString(),etMobile.getText().toString(),etSubject.getText().toString(),etGrade.getText().toString(), EditProfileActivity.this);
+                    String encodedName = "";
+                    String encodedSubject = "";
+                    try {
+                        encodedName = URLEncoder.encode(etName.getText().toString(), "utf-8");
+                        encodedSubject = URLEncoder.encode(etSubject.getText().toString(), "utf-8");
+                    } catch (Exception e){
+                    }
+
+                    ep.editProfileConnection(prefs.getString("sisid", "ERROR"), encodedName,etPassword.getText().toString(),etEmail.getText().toString(),etMobile.getText().toString(),encodedSubject,etGrade.getText().toString(), EditProfileActivity.this);
                 }else{
                     Toast.makeText(EditProfileActivity.this, "Check Fields", Toast.LENGTH_SHORT).show();
                 }

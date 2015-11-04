@@ -17,6 +17,8 @@ import com.techzonecs.tremble.controller.ProfileViewActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.URLDecoder;
+
 /**
  * Created by Bouyabes on 11/1/2015.
  */
@@ -54,9 +56,9 @@ public class EditProfileConnection {
 
                         editor.putString("password", password);
                         editor.putString("email", email);
-                        editor.putString("firstname", name);
+                        editor.putString("firstname", URLDecoder.decode(name, "utf-8"));
                         editor.putString("mobile", mobile);
-                        editor.putString("subject", subject);
+                        editor.putString("subject",  URLDecoder.decode(subject, "utf-8"));
                         editor.putString("grade", grade);
 
                         editor.commit();
