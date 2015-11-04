@@ -1,6 +1,7 @@
 package com.techzonecs.tremble.controller;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -175,32 +176,25 @@ public class EvaluationListActivity extends ActionBarActivity {
                 radioButton = (RadioButton) findViewById(chosenID);
 
                 int q_id = Integer.parseInt(question_id.getText().toString());
-                chosen_answer[q_id] = Integer.parseInt(radioButton.getText().toString());
+                chosen_answer[q_id-1] = Integer.parseInt(radioButton.getText().toString());
             }
 
-            populateSessionList(++sectionPage);
+            if (sectionPage < 3)
+            {
+                populateSessionList(++sectionPage);
+            }
+            else
+            {
+                Toast.makeText(EvaluationListActivity.this, "Your Evaluation has been submitted", Toast.LENGTH_SHORT).show();
+                final SharedPreferences prefs= getSharedPreferences("userInfo", MODE_APPEND);
+                String url = ConnectionURLString.url + "EvaluationAnswers?id_trainee=" + prefs.getString("sisid", "ERROR") +"id_class=";
+
+
+            }
         }
         else
         {
             Toast.makeText(EvaluationListActivity.this, "Please fill in all the choices", Toast.LENGTH_SHORT).show();
         }
-//        String replyString = ConnectionURLString.url ;
-//
-//        int answers[] = new int[questionArrayList.size()];
-//
-//        ListView listView = (ListView) findViewById(R.id.lv_Questions);
-//        for (int i = 0; i < 5; i++) {
-//            View viewInCell = listView.getChildAt(i);
-//
-//            question_id = (TextView) viewInCell.findViewById(R.id.tv_question_id);
-//            radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
-//
-//            int chosenID = radioGroup.getCheckedRadioButtonId();
-//            radioButton = (RadioButton) findViewById(chosenID);
-//            Log.d(""+radioButton.getText().toString(),"test");
-//
-//
-//            replyString += "&answers[]=" + ;
-//        }
     }
 }
