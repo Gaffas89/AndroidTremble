@@ -6,7 +6,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.techzonecs.tremble.controller.EvaluationListItemActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,53 +27,56 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/rb_5" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:text="1"
-        android:id="@+id/rb_1"
-        android:checked="false"
-        android:layout_below="@+id/tv_Question"
-        android:layout_alignParentStart="true"
-        android:allowUndo="true" />
+        android:baselineAligned="false"
+        android:clickable="false"
+        android:id="@+id/rg_chosen_answer"
+        android:orientation="horizontal">
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:id="@+id/rb_2"
-        android:checked="false"
-        android:layout_alignTop="@+id/rb_1"
-        android:layout_toEndOf="@+id/rb_1"
-        android:allowUndo="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/rb_1"
+            android:checked="false" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:id="@+id/rb_3"
-        android:checked="false"
-        android:layout_alignTop="@+id/rb_2"
-        android:layout_toEndOf="@+id/rb_2"
-        android:allowUndo="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:id="@+id/rb_2"
+            android:checked="false" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4"
-        android:id="@+id/rb_4"
-        android:checked="false"
-        android:layout_below="@+id/tv_Question"
-        android:layout_toEndOf="@+id/rb_3"
-        android:allowUndo="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/rb_3"
+            android:checked="false" />
 
-    <RadioButton
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:id="@+id/rb_4"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:id="@+id/rb_5"
+            android:checked="false" />
+    </RadioGroup>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/rb_5"
-        android:checked="false"
-        android:layout_alignTop="@+id/rb_4"
-        android:layout_toEndOf="@+id/rb_4"
-        android:allowUndo="true" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tv_question_id"
+        android:visibility="invisible" />
+
 </LinearLayout>

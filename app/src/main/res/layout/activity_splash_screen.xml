@@ -5,25 +5,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.techzonecs.tremble.controller.SplashScreenActivity"
-    android:background="@color/bgd">
+    tools:context="com.techzonecs.tremble.controller.SplashScreenActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Tremble ^x^"
-        android:id="@+id/textView9"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="50dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Splash Screen here"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/textView9"
-        android:layout_alignEnd="@+id/textView9" />
+        android:id="@+id/imageView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/tremble_temp_logo1" />
 </RelativeLayout>

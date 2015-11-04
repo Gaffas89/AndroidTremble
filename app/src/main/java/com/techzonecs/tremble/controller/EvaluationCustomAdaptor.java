@@ -34,10 +34,12 @@ public class EvaluationCustomAdaptor extends ArrayAdapter<Question> {
         // Lookup view for data population
         TextView tvQuestion = (TextView) convertView.findViewById(R.id.tv_Question);
         TextView tvSection = (TextView) convertView.findViewById(R.id.tv_Section); // This can be changed to a text related to each number via the creation of an enum
+        TextView tvQuestionId = (TextView) convertView.findViewById(R.id.tv_question_id);
 
         // Populate the data into the template view using the data object
         tvQuestion.setText(question.getQuestion());
         tvSection.setText(""+question.getQuestion_Section());
+        tvQuestionId.setText(""+question.getQuestion_Id());
 
         // Return the completed view to render on screen
         return convertView;

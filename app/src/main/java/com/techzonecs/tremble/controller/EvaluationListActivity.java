@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 
 public class EvaluationListActivity extends ActionBarActivity {
 
+    public TextView khamoosh;
+
     public ArrayList<Question> questionArrayList = new ArrayList<Question>();
 
     @Override
@@ -40,7 +44,7 @@ public class EvaluationListActivity extends ActionBarActivity {
         EvaluationCustomAdaptor adapter = new EvaluationCustomAdaptor(this, questionArrayList);
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.lv_Questions);
-        Log.d("after adaptor","test");
+        Log.d("after adaptor", "test");
         listView.setAdapter(adapter);
     }
 
@@ -57,12 +61,30 @@ public class EvaluationListActivity extends ActionBarActivity {
 
             @Override
             public void onResponse(String response) {
-
                 ArrayList<Question> arrayOfQuestions = parseJson(response);
                 questionArrayList = arrayOfQuestions;
 
+                Question changedPlace;
+
+                for(int i = 0; i < questionArrayList.size() - 1 ; i++)
+                {
+                    int minSection = i;
+
+                    for(int j = i+1; j < questionArrayList.size() ; j++)
+                    {
+                        if(questionArrayList.get(j).getQuestion_Section() < questionArrayList.get(i).getQuestion_Section() )
+                        {
+                            minSection =  j;
+                        }
+                    }
+
+                    changedPlace = questionArrayList.get(i);
+                    questionArrayList.set(i, questionArrayList.get(minSection));
+                    questionArrayList.set(minSection, changedPlace);
+                }
+
                 Log.d("before", arrayOfQuestions.toString());
-                Log.d("before", questionArrayList.toString());
+
                 populateSessionList();
 
             }
@@ -75,6 +97,7 @@ public class EvaluationListActivity extends ActionBarActivity {
             }
         });
 
+        Log.d("before", strReq.toString());
 // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
 
@@ -111,5 +134,15 @@ public class EvaluationListActivity extends ActionBarActivity {
         }
 
         return questionsArrayList;
+    }
+
+    public void test(View v)
+    {
+
+
+        ListView listView = (ListView) findViewById(R.id.lv_Questions);
+        View bo = listView.getChildAt(2);
+        khamoosh = (TextView) bo.findViewById(R.id.tv_question_id);
+        Log.d("test", "" + khamoosh.getText());
     }
 }

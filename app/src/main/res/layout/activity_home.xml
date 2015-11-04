@@ -7,68 +7,95 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.techzonecs.tremble.controller.HomeActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:background="@drawable/tremble_temp_logo"
-        android:layout_width="270dp"
-        android:layout_height="110dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/imageViewProfile"
-        android:background="@drawable/ic_profile2"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/imageViewSession"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/ic_sessions2"
-        android:layout_below="@+id/imageViewProfile"
-        android:layout_alignStart="@+id/imageViewProfile" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageViewProfile"
+                android:background="@drawable/ic_profile2"
+                android:layout_marginLeft="20dp" />
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/imageViewAttendance"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/ic_attendance2"
-        android:layout_below="@+id/imageViewSession"
-        android:layout_alignStart="@+id/imageViewSession" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Profile"
+                android:id="@+id/textViewProfile"
+                android:layout_marginBottom="25dp"
+                android:layout_alignBottom="@+id/imageViewProfile"
+                android:layout_toEndOf="@+id/imageViewProfile"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="35dp" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Profile"
-        android:id="@+id/textViewProfile"
-        android:layout_marginBottom="25dp"
-        android:layout_alignBottom="@+id/imageViewProfile"
-        android:layout_toEndOf="@+id/imageViewProfile"
-        android:layout_marginStart="36dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Active Sessions"
-        android:id="@+id/textViewSessions"
-        android:layout_marginBottom="42dp"
-        android:layout_alignBottom="@+id/imageViewSession"
-        android:layout_alignStart="@+id/textViewProfile" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageViewAttendance"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/ic_attendance2"
+                android:layout_below="@+id/imageViewSession"
+                android:layout_alignStart="@+id/imageViewSession"
+                android:layout_marginLeft="20dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Attendance"
-        android:id="@+id/textViewAttendance"
-        android:layout_alignBottom="@+id/imageViewAttendance"
-        android:layout_alignStart="@+id/textViewSessions"
-        android:layout_marginBottom="35dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Attendance"
+                android:id="@+id/textViewAttendance"
+                android:layout_alignBottom="@+id/imageViewAttendance"
+                android:layout_alignStart="@+id/textViewSessions"
+                android:layout_marginBottom="35dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="35dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageViewSession"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/ic_sessions2"
+                android:layout_below="@+id/imageViewProfile"
+                android:layout_alignStart="@+id/imageViewProfile"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Active Sessions"
+                android:id="@+id/textViewSessions"
+                android:layout_marginBottom="42dp"
+                android:layout_alignBottom="@+id/imageViewSession"
+                android:layout_alignStart="@+id/textViewProfile"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="35dp" />
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>
