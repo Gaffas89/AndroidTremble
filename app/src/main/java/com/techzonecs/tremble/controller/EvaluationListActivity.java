@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -22,12 +24,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EvaluationListActivity extends ActionBarActivity {
 
-    public TextView khamoosh;
-
+    TextView question_id;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    int sectionPage = 0;
     public ArrayList<Question> questionArrayList = new ArrayList<Question>();
+
+    ArrayList<Question> mappedSecsion[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +45,13 @@ public class EvaluationListActivity extends ActionBarActivity {
 
     }
 
-    private void populateSessionList() {
+    private void populateSessionList(int section) {
 
         // Create the adapter to convert the array to views
-        EvaluationCustomAdaptor adapter = new EvaluationCustomAdaptor(this, questionArrayList);
+        EvaluationCustomAdaptor adapter = new EvaluationCustomAdaptor(this, mappedSecsion[section]);
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.lv_Questions);
-        Log.d("after adaptor", "test");
+        Log.d("after adaptor", "submit_Answers");
         listView.setAdapter(adapter);
     }
 
@@ -66,26 +73,27 @@ public class EvaluationListActivity extends ActionBarActivity {
 
                 Question changedPlace;
 
-                for(int i = 0; i < questionArrayList.size() - 1 ; i++)
+                mappedSecsion = new ArrayList[4];
+                mappedSecsion[0] = new ArrayList();
+                mappedSecsion[1] = new ArrayList();
+                mappedSecsion[2] = new ArrayList();
+                mappedSecsion[3] = new ArrayList();
+
+                Log.d("listing", mappedSecsion[0].toString());
+                Log.d("listing", mappedSecsion[1].toString());
+                Log.d("listing", mappedSecsion[2].toString());
+                Log.d("listing", mappedSecsion[3].toString());
+                Log.d("listing", mappedSecsion.toString());
+
+                for (int i = 0; i < questionArrayList.size() ; i++)
                 {
-                    int minSection = i;
-
-                    for(int j = i+1; j < questionArrayList.size() ; j++)
-                    {
-                        if(questionArrayList.get(j).getQuestion_Section() < questionArrayList.get(i).getQuestion_Section() )
-                        {
-                            minSection =  j;
-                        }
-                    }
-
-                    changedPlace = questionArrayList.get(i);
-                    questionArrayList.set(i, questionArrayList.get(minSection));
-                    questionArrayList.set(minSection, changedPlace);
+                    int section = questionArrayList.get(i).getQuestion_Section() - 1;
+                    mappedSecsion[section].add(questionArrayList.get(i));
                 }
 
                 Log.d("before", arrayOfQuestions.toString());
 
-                populateSessionList();
+                populateSessionList(sectionPage);
 
             }
         }, new Response.ErrorListener() {
@@ -109,7 +117,7 @@ public class EvaluationListActivity extends ActionBarActivity {
         try{
             JSONObject jsonResponse = new JSONObject(str);
             String answer = jsonResponse.getString("result_data");
-            Log.d("test", answer);
+            Log.d("submit_Answers", answer);
             JSONArray jsonArray = new JSONArray(answer);
             Log.d("test1", ""+jsonArray.length());
 
@@ -136,13 +144,27 @@ public class EvaluationListActivity extends ActionBarActivity {
         return questionsArrayList;
     }
 
-    public void test(View v)
-    {
+    public void submit_Answers(View v) {
 
-
-        ListView listView = (ListView) findViewById(R.id.lv_Questions);
-        View bo = listView.getChildAt(2);
-        khamoosh = (TextView) bo.findViewById(R.id.tv_question_id);
-        Log.d("test", "" + khamoosh.getText());
+        populateSessionList(++sectionPage);
+//        String replyString = ConnectionURLString.url ;
+//
+//        int answers[] = new int[questionArrayList.size()];
+//
+//        ListView listView = (ListView) findViewById(R.id.lv_Questions);
+//        for (int i = 0; i < 5; i++) {
+//            View viewInCell = listView.getChildAt(i);
+//
+//            //Log.d("id",""+ viewInCell.findViewById(R.id.tv_question_id));
+////            question_id = (TextView) viewInCell.findViewById(R.id.tv_question_id);
+////            radioGroup = (RadioGroup) viewInCell.findViewById(R.id.rg_chosen_answer);
+////
+////            int chosenID = radioGroup.getCheckedRadioButtonId();
+////            radioButton = (RadioButton) findViewById(chosenID);
+////            Log.d(""+radioButton.getText().toString(),"test");
+//
+//
+//           // replyString += "&answers[]=" + ;
+//        }
     }
 }

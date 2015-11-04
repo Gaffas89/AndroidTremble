@@ -38,7 +38,7 @@ public class EvaluationCustomAdaptor extends ArrayAdapter<Question> {
 
         // Populate the data into the template view using the data object
         tvQuestion.setText(question.getQuestion());
-        tvSection.setText(""+question.getQuestion_Section());
+        tvSection.setText("Section "+question.getQuestion_Section());
         tvQuestionId.setText(""+question.getQuestion_Id());
 
         // Return the completed view to render on screen

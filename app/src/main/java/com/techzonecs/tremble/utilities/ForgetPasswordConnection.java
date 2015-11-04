@@ -34,7 +34,7 @@ public class ForgetPasswordConnection {
 
             @Override
             public void onResponse(String response) {
-                Log.d("test", response.toString());
+                Log.d("submit_Answers", response.toString());
 
             }
         }, new Response.ErrorListener() {
