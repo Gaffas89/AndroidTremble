@@ -105,6 +105,6 @@
         android:layout_height="50dp"
         android:id="@+id/imageView4"
         android:background="@drawable/ic_save"
-        android:layout_below="@+id/editTextConfirmPass"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

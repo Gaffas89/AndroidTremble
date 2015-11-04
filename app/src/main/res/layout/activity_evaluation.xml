@@ -21,31 +21,16 @@
             android:layout_alignParentEnd="true"
             android:layout_weight="0.71" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.20"
-            android:textAlignment="center">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:text="New Button"
-                android:id="@+id/button"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:onClick="submit_Answers" />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:id="@+id/imageView2"
-                android:background="@drawable/ic_submit"
-                android:layout_alignBottom="@+id/button"
-                android:layout_alignEnd="@+id/lv_Questions"
-                android:layout_marginRight="20dp" />
-        </LinearLayout>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/ic_submit"
+            android:layout_alignBottom="@+id/button"
+            android:layout_alignEnd="@+id/lv_Questions"
+            android:layout_marginRight="20dp"
+            android:onClick="submit_Answers"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 </RelativeLayout>

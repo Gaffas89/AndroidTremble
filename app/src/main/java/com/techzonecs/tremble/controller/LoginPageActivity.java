@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog.Builder;
@@ -27,17 +28,19 @@ public class LoginPageActivity extends AppCompatActivity {
 
     EditText etSISID;
     EditText etPassword;
+    ImageView etLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button singin = (Button) findViewById(R.id.btn_signin);
+        //Button singin = (Button) findViewById(R.id.btn_signin);
+        etLogin = (ImageView) findViewById(R.id.btn_signin1);
         etSISID = (EditText) findViewById(R.id.TFfield_SISID);
         etPassword = (EditText) findViewById(R.id.TFfield_pw);
 
-        singin.setOnClickListener(new View.OnClickListener() {
+        etLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (longInValidaion()) {

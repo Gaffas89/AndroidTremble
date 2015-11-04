@@ -11,7 +11,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,7 +98,8 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            android:layout_weight="0.34">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,16 +140,9 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GPS Location"
-                android:id="@+id/btn_location_gps"
-                android:layout_gravity="left" />
 
             <ImageView
                 android:layout_width="50dp"
@@ -156,12 +151,14 @@
                 android:background="@drawable/location"
                 android:layout_marginRight="50dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Evaluation"
-                android:id="@+id/btn_evaluation"
-                android:onClick="navigateToEvaluationView" />
+            <ImageView
+                android:layout_width="71dp"
+                android:layout_height="55dp"
+                android:id="@+id/imageView8"
+                android:src="@drawable/ic_submit"
+                android:onClick="navigateToEvaluationView"
+                android:adjustViewBounds="true" />
+
         </LinearLayout>
 
     </LinearLayout>
