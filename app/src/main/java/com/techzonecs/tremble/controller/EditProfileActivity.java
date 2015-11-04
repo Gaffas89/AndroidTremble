@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.techzonecs.tremble.R;
@@ -25,6 +26,7 @@ public class EditProfileActivity extends AppCompatActivity {
     EditText etGrade;
     EditText etPassword;
     EditText etConfirmPass;
+    ImageView etSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class EditProfileActivity extends AppCompatActivity {
         etGrade = (EditText) findViewById(R.id.editTextGrade);
         etPassword = (EditText) findViewById(R.id.editTextPassword);
         etConfirmPass = (EditText) findViewById(R.id.editTextConfirmPass);
+        etSave = (ImageView) findViewById(R.id.imageView4);
 
         // Getting the local data from the shared preferences
         final SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
@@ -52,10 +55,8 @@ public class EditProfileActivity extends AppCompatActivity {
         etPassword.setText(prefs.getString("password", "ERROR"));
         etConfirmPass.setText(prefs.getString("password", "ERROR"));
 
-        Button save = (Button)findViewById(R.id.buttonSave);
-
         // Defining the save button`s functionality
-        save.setOnClickListener(new View.OnClickListener() {
+        etSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validateEdit()){
