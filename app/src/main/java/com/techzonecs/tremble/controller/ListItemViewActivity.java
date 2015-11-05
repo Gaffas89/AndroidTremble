@@ -15,7 +15,6 @@ import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -86,7 +85,9 @@ public class ListItemViewActivity extends AppCompatActivity {
 
     public void navigateToEvaluationView(View view)
     {
+        //check if user already evaluated the session
         if ( evaluationDoneFlag.equals("false")) {
+            //convert the String date to date
             String string = dates[3];
             DateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
             Date date = new Date();
@@ -96,6 +97,7 @@ public class ListItemViewActivity extends AppCompatActivity {
             } catch (Exception e){
 
             }
+            //check if the date is before the last day of the session
             if ((new Date()).before(date)){
                 Toast.makeText(ListItemViewActivity.this, "Cannot Evaluate Yet!", Toast.LENGTH_SHORT).show();
 

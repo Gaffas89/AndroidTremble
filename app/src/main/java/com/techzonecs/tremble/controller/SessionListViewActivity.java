@@ -39,7 +39,6 @@ public class SessionListViewActivity extends AppCompatActivity {
 
     public void getSessionArray(String trainee){
         String tag_string_req = "string_req";
-        Log.d("evaluation", trainee );
         String url = ConnectionURLString.url + "GetSessions?id_trainee=" + trainee;
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
@@ -84,9 +83,7 @@ public class SessionListViewActivity extends AppCompatActivity {
 
                 String tempDates = json.getString("wave_date");
                 String[] dates = tempDates.split(",", -1);
-                for (int k = 0; k<4; k++){
-                    Log.d("ARRAY OF DATES "+k+": ",dates[k]);
-                }
+
                 sess.setDate(dates);
                 sess.setLocation(json.getString("location_name"));
                 sess.setLocationGps(json.getString("location_gps"));
@@ -95,8 +92,6 @@ public class SessionListViewActivity extends AppCompatActivity {
                 sess.setId_session(json.getString("id_session"));
                 sess.setId_class(json.getString("id_class"));
                 sess.setIsEvaluationDoneFlag(json.getString("isEvaluationDone"));
-
-                Log.d("evaluation", json.toString());
 
                 sessionArrayList.add(sess);
             }
@@ -142,8 +137,6 @@ public class SessionListViewActivity extends AppCompatActivity {
             i.putExtra("class_id", arrayOfSessions.get((int) id).getId_class());
             i.putExtra("session_id", arrayOfSessions.get((int) id).getId_session());
             i.putExtra("isEvaluationDone", arrayOfSessions.get((int)id).getIsEvaluationDoneFlag());
-            Log.d("evaluation", arrayOfSessions.get((int)id).getIsEvaluationDoneFlag());
-
 
             startActivity(i);
         }
