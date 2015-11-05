@@ -32,15 +32,6 @@ public class ProfileViewActivity extends AppCompatActivity {
 
         final SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
 
-
-//        Intent intent = getIntent();
-//        tvName.setText(intent.getStringExtra("firstname"));
-//        tvSISID.setText(intent.getStringExtra("sisid"));
-//        tvMobile.setText(intent.getStringExtra("mobile"));
-//        tvEmail.setText(intent.getStringExtra("email"));
-//        tvSubject.setText(intent.getStringExtra("subject"));
-//        tvGrade.setText(intent.getStringExtra("grade"));
-
         //getting the information from shared preferences
         tvName.setText(prefs.getString("firstname", "ERROR"));
         tvSISID.setText(prefs.getString("sisid", "ERROR"));
@@ -63,6 +54,7 @@ public class ProfileViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences.Editor editor= prefs.edit();
                 editor.putBoolean("isLoggedIn", false);
+                editor.clear(); //clears sharedPreferences
                 editor.commit();
                 Intent logOutIntent = new Intent(ProfileViewActivity.this, LoginPageActivity.class);
                 startActivity(logOutIntent);
