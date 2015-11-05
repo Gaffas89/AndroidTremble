@@ -93,6 +93,7 @@ public class SessionListViewActivity extends AppCompatActivity {
                 sess.setZone(json.getString("zone"));
                 sess.setId_session(json.getString("id_session"));
                 sess.setId_class(json.getString("id_class"));
+                sess.setIsEvaluationDoneFlag(json.getString("isEvaluationDone"));
 
                 sessionArrayList.add(sess);
             }
@@ -137,6 +138,7 @@ public class SessionListViewActivity extends AppCompatActivity {
             i.putExtra("dates", datesString);
             i.putExtra("class_id", arrayOfSessions.get((int) id).getId_class());
             i.putExtra("session_id", arrayOfSessions.get((int) id).getId_session());
+            i.putExtra("isEvaluationDone", arrayOfSessions.get((int)id).getIsEvaluationDoneFlag());
 
 
             startActivity(i);

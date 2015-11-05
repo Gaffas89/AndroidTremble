@@ -14,22 +14,32 @@ public class Session {
     private String trainerName;
     private String id_class;
     private String id_session;
+    private String isEvaluationDoneFlag;
 
 
-    public Session(String courseName, String[] date, String location, String className, String locationGps, String zone, String trainerName, String id_class, String id_session) {
-        this.courseName = courseName;
+    public Session(String[] date, String location, String className, String courseName, String locationGps, String zone, String trainerName, String id_class, String id_session, String isEvaluationDoneFlag) {
         this.date = date;
         this.location = location;
         this.className = className;
+        this.courseName = courseName;
         this.locationGps = locationGps;
         this.zone = zone;
         this.trainerName = trainerName;
         this.id_class = id_class;
         this.id_session = id_session;
+        this.isEvaluationDoneFlag = isEvaluationDoneFlag;
     }
 
     public Session(){
 
+    }
+
+    public String getIsEvaluationDoneFlag() {
+        return isEvaluationDoneFlag;
+    }
+
+    public void setIsEvaluationDoneFlag(String isEvaluationDoneFlag) {
+        this.isEvaluationDoneFlag = isEvaluationDoneFlag;
     }
 
     public String[] getDate() {

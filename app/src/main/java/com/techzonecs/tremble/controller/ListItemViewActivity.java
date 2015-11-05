@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
@@ -20,6 +21,7 @@ public class ListItemViewActivity extends AppCompatActivity {
     String[] dates;
     String classId;
     String sessionId;
+    String evaluationDoneFlag;
     //the controller for a single session`s details
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class ListItemViewActivity extends AppCompatActivity {
 
         classId = getIntent().getStringExtra("class_id");
         sessionId = getIntent().getStringExtra("session_id");
+        evaluationDoneFlag = getIntent().getStringExtra("isEvaluationDone");
 
         String tempStringDates = getIntent().getStringExtra("dates");
         dates = tempStringDates.split(",", -1);
@@ -68,7 +71,7 @@ public class ListItemViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://www.google.ae/maps/@"+GPSCoordinates[0]+","+GPSCoordinates[1]+",15z?hl=en"));
+                i.setData(Uri.parse("https://www.google.ae/maps/@"+GPSCoordinates[0]+","+GPSCoordinates[1]+",16z?hl=en"));
 
                 startActivity(i);
 
@@ -79,11 +82,17 @@ public class ListItemViewActivity extends AppCompatActivity {
 
     public void navigateToEvaluationView(View view)
     {
-        if (dates[3].equals(new Date())) {
-            Intent i = new Intent(ListItemViewActivity.this, EvaluationListActivity.class);
-            i.putExtra("id_class", classId);
-            i.putExtra("id_session", sessionId);
-            startActivity(i);
+        if ( evaluationDoneFlag.equals("false")) {
+            if (dates[3].equals(new Date())){
+                Intent i = new Intent(ListItemViewActivity.this, EvaluationListActivity.class);
+                i.putExtra("id_class", classId);
+                i.putExtra("id_session", sessionId);
+                startActivity(i);
+            } else {
+                Toast.makeText(ListItemViewActivity.this, "Cannot Evaluate Yet!", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(ListItemViewActivity.this, "You have finished this Evaluation.", Toast.LENGTH_SHORT).show();
         }
     }
 }
