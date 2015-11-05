@@ -1,18 +1,23 @@
 package com.techzonecs.tremble.controller;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
 
+import java.util.Date;
+
 public class ListItemViewActivity extends AppCompatActivity {
 
+    String[] dates;
     String classId;
     String sessionId;
     //the controller for a single session`s details
@@ -27,14 +32,14 @@ public class ListItemViewActivity extends AppCompatActivity {
         TextView tvCourseName = (TextView) this.findViewById(R.id.tv_course_name);
         TextView tvClassName = (TextView) this.findViewById(R.id.tv_class_name);
         TextView tvLocationName = (TextView) this.findViewById(R.id.tv_location_name);
-        //Button btnLocationGps = (Button) this.findViewById(R.id.btn_location_gps);
         TextView tvZone = (TextView) this.findViewById(R.id.tv_zone);
         TextView tvDate1 = (TextView) this.findViewById(R.id.textView1stDate);
         TextView tvDate2 = (TextView) this.findViewById(R.id.textView2ndDate);
         TextView tvDate3 = (TextView) this.findViewById(R.id.textView3rdDate);
         TextView tvDate4 = (TextView) this.findViewById(R.id.textView4thDate);
         TextView tvTrainerName = (TextView) this.findViewById(R.id.tv_trainer);
-        //Button btnEvaluation = (Button) this.findViewById(R.id.btn_evaluation);
+        ImageView imMap = (ImageView) findViewById(R.id.imageViewMap);
+
 
         //set the values of the fields
         tvClassName.setText(getIntent().getStringExtra("class_name"));
@@ -46,7 +51,7 @@ public class ListItemViewActivity extends AppCompatActivity {
         sessionId = getIntent().getStringExtra("session_id");
 
         String tempStringDates = getIntent().getStringExtra("dates");
-        String[] dates = tempStringDates.split(",", -1);
+        dates = tempStringDates.split(",", -1);
         tvDate1.setText(dates[0]);
         tvDate2.setText(dates[1]);
         tvDate3.setText(dates[2]);
@@ -55,21 +60,30 @@ public class ListItemViewActivity extends AppCompatActivity {
         tvTrainerName.setText(getIntent().getStringExtra("trainer_name"));
         //btnLocationGps.setText(getIntent().getStringExtra("Open GPS Location").toString());
 
+        String tempLocationGPS = getIntent().getStringExtra("location_gps").toString();
+        final String[] GPSCoordinates = tempLocationGPS.split(";", -1);
+
         //set the function of the gps button to navigate to the map
-//        btnLocationGps.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        imMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://www.google.ae/maps/@"+GPSCoordinates[0]+","+GPSCoordinates[1]+",15z?hl=en"));
+
+                startActivity(i);
+
+            }
+        });
 
     }
 
     public void navigateToEvaluationView(View view)
     {
-        Intent i = new Intent(ListItemViewActivity.this , EvaluationListActivity.class);
-        i.putExtra("id_class", classId);
-        i.putExtra("id_session" , sessionId);
-        startActivity(i);
+        if (dates[3].equals(new Date())) {
+            Intent i = new Intent(ListItemViewActivity.this, EvaluationListActivity.class);
+            i.putExtra("id_class", classId);
+            i.putExtra("id_session", sessionId);
+            startActivity(i);
+        }
     }
 }

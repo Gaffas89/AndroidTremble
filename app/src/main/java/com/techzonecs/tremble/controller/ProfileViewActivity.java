@@ -27,8 +27,8 @@ public class ProfileViewActivity extends AppCompatActivity {
         TextView tvEmail = (TextView) findViewById(R.id.textViewEmail);
         TextView tvSubject = (TextView) findViewById(R.id.textViewSubject);
         TextView tvGrade = (TextView) findViewById(R.id.textViewGrade);
-        ImageView imgLogout = (ImageView) findViewById(R.id.imageView7);
-        ImageView imgEdit = (ImageView) findViewById(R.id.imageView6);
+        ImageView imgLogout = (ImageView) findViewById(R.id.imageViewLogout);
+        ImageView imgEdit = (ImageView) findViewById(R.id.imageViewEditProfile);
 
         final SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
 

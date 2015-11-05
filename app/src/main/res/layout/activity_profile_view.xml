@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/imageView6"
+            android:id="@+id/imageViewEditProfile"
             android:layout_gravity="right"
             android:background="@drawable/icon_edit" />
 
@@ -198,7 +198,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/imageView7"
+        android:id="@+id/imageViewLogout"
         android:background="@drawable/logout"
         android:layout_gravity="center_horizontal" />
 </RelativeLayout>

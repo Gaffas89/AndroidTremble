@@ -50,7 +50,7 @@
                 android:layout_height="120dp"
                 android:id="@+id/imageViewAttendance"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/qr_page"
+                android:background="@drawable/qr_page2"
                 android:layout_below="@+id/imageViewSession"
                 android:layout_alignStart="@+id/imageViewSession"
                 android:layout_marginLeft="20dp" />
