@@ -10,15 +10,36 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/imageViewEditProfile"
-            android:layout_gravity="right"
-            android:background="@drawable/icon_edit" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.26"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageViewLogout"
+                android:layout_gravity="left"
+                android:layout_marginRight="200dp"
+                android:background="@drawable/logout"
+                android:layout_weight="0.03" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:id="@+id/imageViewEditProfile"
+                android:background="@drawable/icon_edit" />
+        </LinearLayout>
 
         <ImageView
             android:layout_width="90dp"
@@ -195,10 +216,5 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/imageViewLogout"
-        android:background="@drawable/logout"
-        android:layout_gravity="center_horizontal" />
+
 </RelativeLayout>

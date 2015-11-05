@@ -1,11 +1,13 @@
 package com.techzonecs.tremble.controller;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class ListItemViewActivity extends AppCompatActivity {
+public class ListItemViewActivity extends Activity {
 
     String[] dates;
     String classId;
@@ -31,7 +33,8 @@ public class ListItemViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_item_view);
 
-
+        //MAKE APP FULL SCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // linking all the fields of the xml
         TextView tvCourseName = (TextView) this.findViewById(R.id.tv_course_name);

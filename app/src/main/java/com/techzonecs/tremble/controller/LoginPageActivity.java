@@ -1,5 +1,6 @@
 package com.techzonecs.tremble.controller;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,7 +26,7 @@ import com.techzonecs.tremble.utilities.LoginConnection;
 import java.net.URI;
 import java.util.ArrayList;
 
-public class LoginPageActivity extends AppCompatActivity {
+public class LoginPageActivity extends Activity {
 
     EditText etSISID;
     EditText etPassword;
@@ -34,6 +36,9 @@ public class LoginPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //MAKE APP FULL SCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Button singin = (Button) findViewById(R.id.btn_signin);
         etLogin = (ImageView) findViewById(R.id.btn_signin1);

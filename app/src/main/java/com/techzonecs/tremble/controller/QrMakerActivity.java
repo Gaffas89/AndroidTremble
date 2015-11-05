@@ -1,8 +1,10 @@
 package com.techzonecs.tremble.controller;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.techzonecs.tremble.R;
@@ -13,7 +15,7 @@ import java.net.URLEncoder;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class QrMakerActivity extends AppCompatActivity {
+public class QrMakerActivity extends Activity {
 
     ImageLoader imgLoader;
     ImageView qrImg;
@@ -28,6 +30,9 @@ public class QrMakerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_maker);
+
+        //MAKE APP FULL SCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         SharedPreferences prefs= getSharedPreferences(PREF_NAME, MODE_APPEND);
 

@@ -1,10 +1,12 @@
 package com.techzonecs.tremble.controller;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,7 +18,7 @@ import com.techzonecs.tremble.utilities.EditProfileConnection;
 import java.net.URLEncoder;
 
 //Edit profile controller to populate and validate the inputes
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends Activity {
 
     public final static String PREF_NAME="userInfo";
     EditText etName;
@@ -32,6 +34,9 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        //MAKE APP FULL SCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // Lookup view for data population
         etName = (EditText) findViewById(R.id.editTextName);

@@ -1,19 +1,21 @@
 package com.techzonecs.tremble.controller;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.techzonecs.tremble.R;
 
-public class ProfileViewActivity extends AppCompatActivity {
+public class ProfileViewActivity extends Activity {
 
     public final static String PREF_NAME="userInfo";
 
@@ -21,6 +23,9 @@ public class ProfileViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_view);
+        //MAKE APP FULL SCREEN
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         TextView tvName = (TextView) findViewById(R.id.textViewName);
         TextView tvSISID = (TextView) findViewById(R.id.textViewSISID);
         TextView tvMobile = (TextView) findViewById(R.id.textViewMobile);
