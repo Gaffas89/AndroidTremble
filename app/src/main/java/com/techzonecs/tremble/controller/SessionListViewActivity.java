@@ -31,14 +31,15 @@ public class SessionListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session_list_view);
 
-        getSessionArray("2");
+        final SharedPreferences prefs= getSharedPreferences("userInfo", MODE_APPEND);
+        getSessionArray(prefs.getString("sisid", "ERROR"));
     }
 
 
 
     public void getSessionArray(String trainee){
         String tag_string_req = "string_req";
-
+        Log.d("evaluation", trainee );
         String url = ConnectionURLString.url + "GetSessions?id_trainee=" + trainee;
 
         StringRequest strReq = new StringRequest(Request.Method.GET,
@@ -95,6 +96,8 @@ public class SessionListViewActivity extends AppCompatActivity {
                 sess.setId_class(json.getString("id_class"));
                 sess.setIsEvaluationDoneFlag(json.getString("isEvaluationDone"));
 
+                Log.d("evaluation", json.toString());
+
                 sessionArrayList.add(sess);
             }
 
@@ -139,6 +142,7 @@ public class SessionListViewActivity extends AppCompatActivity {
             i.putExtra("class_id", arrayOfSessions.get((int) id).getId_class());
             i.putExtra("session_id", arrayOfSessions.get((int) id).getId_session());
             i.putExtra("isEvaluationDone", arrayOfSessions.get((int)id).getIsEvaluationDoneFlag());
+            Log.d("evaluation", arrayOfSessions.get((int)id).getIsEvaluationDoneFlag());
 
 
             startActivity(i);
