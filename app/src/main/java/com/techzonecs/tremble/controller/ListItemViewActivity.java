@@ -14,7 +14,11 @@ import android.widget.Toast;
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class ListItemViewActivity extends AppCompatActivity {
 
@@ -83,13 +87,23 @@ public class ListItemViewActivity extends AppCompatActivity {
     public void navigateToEvaluationView(View view)
     {
         if ( evaluationDoneFlag.equals("false")) {
-            if (dates[3].equals(new Date())){
+            String string = dates[3];
+            DateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+            Date date = new Date();
+            try {
+                date = format.parse(string);
+                Log.d("DATE AS DATE:",date.toString());
+            } catch (Exception e){
+
+            }
+            if ((new Date()).before(date)){
+                Toast.makeText(ListItemViewActivity.this, "Cannot Evaluate Yet!", Toast.LENGTH_SHORT).show();
+
+            } else {
                 Intent i = new Intent(ListItemViewActivity.this, EvaluationListActivity.class);
                 i.putExtra("id_class", classId);
                 i.putExtra("id_session", sessionId);
                 startActivity(i);
-            } else {
-                Toast.makeText(ListItemViewActivity.this, "Cannot Evaluate Yet!", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(ListItemViewActivity.this, "You have finished this Evaluation.", Toast.LENGTH_SHORT).show();
